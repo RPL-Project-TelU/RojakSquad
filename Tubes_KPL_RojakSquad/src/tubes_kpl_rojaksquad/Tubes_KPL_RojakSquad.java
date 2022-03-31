@@ -15,7 +15,7 @@ public class Tubes_KPL_RojakSquad {
      */
     public static void main(String[] args) {
         Searching s = new Searching();
-        System.out.println(s.cariBuku("Buku Algoritma 1"));
+        s.cariBuku("Algoritma 1");
     }
     
 }
