@@ -1,5 +1,8 @@
 package Referensi;
 
-public class Buku {
+public class Buku extends referensi {
     
+
+    
+
 }
