@@ -1,5 +1,5 @@
 package Referensi;
 
-public class Jurnal {
-    
+public class Jurnal extends referensi {
+  
 }
