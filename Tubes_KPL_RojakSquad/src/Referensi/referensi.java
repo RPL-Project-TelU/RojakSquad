@@ -1,17 +1,22 @@
 package Referensi;
 
+
 public class referensi {
   
-    private String judul;
-    private String penulis;
-    private int halaman;
-    private double rating;
-    private int countR;
+    protected String judul;
+    protected String penulis;
+    protected String kategori;
+    protected int halaman;
+    protected String tanggal;
+    protected double rating;
+    protected int countR;
 
-    public referensi(String judul, String penulis, int halaman){
+    public referensi(String judul, String penulis, String kategori, int halaman, String tanggal) {
         this.judul = judul;
         this.penulis = penulis;
+        this.kategori = kategori;
         this.halaman = halaman
+        this.tanggal = tanggal;
         this.rating = 0;
         this.countR = 0;
     }
@@ -35,6 +40,19 @@ public class referensi {
         return this.penulis;
     }
 
+    public void setKategori(String kategori){
+        this.penulis = penulis;
+    }
+    public String getKategori(){
+        return this.kategori;
+    }
+
+    public void setTanggal(String tanggal){
+        this.tanggal = tanggal;
+    }
+    public String getTanggal(){
+        return this.tanggal;
+    }
 
 
 }
