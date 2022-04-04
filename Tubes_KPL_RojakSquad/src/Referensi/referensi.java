@@ -1,17 +1,22 @@
 package Referensi;
 
+import java.util.*;
+
 public class referensi {
   
     private String judul;
     private String penulis;
-    private int halaman;
+    private String topik;
     private double rating;
     private int countR;
+    enum Topik{UiUx, MachineLearning, DataScience};
+    Dictionary dict = new Hashtable();
 
-    public referensi(String judul, String penulis, int halaman){
+
+    public referensi(String judul, String penulis,String topik){
         this.judul = judul;
         this.penulis = penulis;
-        this.halaman = halaman
+        this.topik = topik;
         this.rating = 0;
         this.countR = 0;
     }
@@ -21,11 +26,22 @@ public class referensi {
         this.rating = (this.rating + rate)/this.countR;
     }
 
+    public double getRaring(){
+        return rating;
+    }
+
     public void setJudul(String judul){
         this.judul = judul;
     }
     public String getJudul(){
         return this.judul;
+    }
+
+    public void setTopik(String topik){
+        this.topik = topik;
+    }
+    public String getTopik(){
+        return topik;
     }
 
     public void setPenulis(String penulis){
@@ -35,6 +51,16 @@ public class referensi {
         return this.penulis;
     }
 
-
+    public void uploadReferensi(int topik){
+        dict.put(topik, this);
+    }
+    
+    public void listReferensi(){
+        Enumeration enu = dict.elements();
+        while(enu.hasMoreElements()){
+            System.out.println(enu.nextElement());
+        }
+        
+    }
 
 }
