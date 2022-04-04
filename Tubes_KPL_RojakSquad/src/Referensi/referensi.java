@@ -1,5 +1,4 @@
 package Referensi;
-
 import java.util.*;
 
 public class referensi {
@@ -17,6 +16,7 @@ public class referensi {
         this.judul = judul;
         this.penulis = penulis;
         this.topik = topik;
+
         this.rating = 0;
         this.countR = 0;
     }
@@ -51,6 +51,22 @@ public class referensi {
         return this.penulis;
     }
 
+
+    public void setKategori(String kategori){
+        this.penulis = penulis;
+    }
+    public String getKategori(){
+        return this.kategori;
+    }
+
+    public void setTanggal(String tanggal){
+        this.tanggal = tanggal;
+    }
+    public String getTanggal(){
+        return this.tanggal;
+    }
+
+
     public void uploadReferensi(int topik){
         dict.put(topik, this);
     }
@@ -62,5 +78,6 @@ public class referensi {
         }
         
     }
+
 
 }
