@@ -1,22 +1,22 @@
 package Referensi;
-
+import java.util.*;
 
 public class referensi {
   
-    protected String judul;
-    protected String penulis;
-    protected String kategori;
-    protected int halaman;
-    protected String tanggal;
-    protected double rating;
-    protected int countR;
+    private String judul;
+    private String penulis;
+    private String topik;
+    private double rating;
+    private int countR;
+    enum Topik{UiUx, MachineLearning, DataScience};
+    Dictionary dict = new Hashtable();
 
-    public referensi(String judul, String penulis, String kategori, int halaman, String tanggal) {
+
+    public referensi(String judul, String penulis,String topik){
         this.judul = judul;
         this.penulis = penulis;
-        this.kategori = kategori;
-        this.halaman = halaman
-        this.tanggal = tanggal;
+        this.topik = topik;
+
         this.rating = 0;
         this.countR = 0;
     }
@@ -26,11 +26,22 @@ public class referensi {
         this.rating = (this.rating + rate)/this.countR;
     }
 
+    public double getRaring(){
+        return rating;
+    }
+
     public void setJudul(String judul){
         this.judul = judul;
     }
     public String getJudul(){
         return this.judul;
+    }
+
+    public void setTopik(String topik){
+        this.topik = topik;
+    }
+    public String getTopik(){
+        return topik;
     }
 
     public void setPenulis(String penulis){
@@ -39,6 +50,7 @@ public class referensi {
     public String getPenulis(){
         return this.penulis;
     }
+
 
     public void setKategori(String kategori){
         this.penulis = penulis;
@@ -52,6 +64,19 @@ public class referensi {
     }
     public String getTanggal(){
         return this.tanggal;
+    }
+
+
+    public void uploadReferensi(int topik){
+        dict.put(topik, this);
+    }
+    
+    public void listReferensi(){
+        Enumeration enu = dict.elements();
+        while(enu.hasMoreElements()){
+            System.out.println(enu.nextElement());
+        }
+        
     }
 
 
