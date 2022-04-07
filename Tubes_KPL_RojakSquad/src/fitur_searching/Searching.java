@@ -4,43 +4,75 @@
  * and open the template in the editor.
  */
 package fitur_searching;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.IOException;
 /**
  *
  * @author powny
  */
 public class Searching {
-    String data[] = {"Pengenalan Algoritma 1","Pembelajaran Algoritma 2", "Rekayasa Perangkat Lunak",
-    "Basis Data","Jurnal Arsitektur dan Organisasi Komputer","Jaringan Komputer"};
-    
     private String hasil = "";
+    private String jsonString = "{\n" +
+"    \"buku\" :[\n" +
+"        {\n" +
+"            \"judul\": \"Pengenalan Algoritma 1\",\n" +
+"            \"rating\":5\n" +
+"        },\n" +
+"        {\n" +
+"            \"judul\": \"Pengenalan Algoritma 2\",\n" +
+"            \"rating\":4\n" +
+"        },\n" +
+"        {\n" +
+"            \"judul\": \"Rekayasa Perangkat Lunak\",\n" +
+"            \"rating\":5\n" +
+"        },\n" +
+"        {\n" +
+"            \"judul\": \"Basis Data\",\n" +
+"            \"rating\":3\n" +
+"        },\n" +
+"        {\n" +
+"            \"judul\": \"Jurnal Arsitektur dan Organisasi Komputer\",\n" +
+"            \"rating\":5\n" +
+"        },\n" +
+"        {\n" +
+"            \"judul\": \"Rekayasa Industri\",\n" +
+"            \"rating\":5\n" +
+"        }\n" +
+"    ]\n" +
+"}";
         
     public void cariBuku(String judul){ 
-        
+        // membuat array untuk mengecek huruf pada setiap data
         String[] splited = judul.split("\\s+");
         List<String> bukuSerupa = new ArrayList<String>();
         
-        for(int i=0; i<data.length;i++){
-            for(int j = 0; j<splited.length;j++){
-                if(data[i].contains(splited[j])&&judul!= data[i]){
-                    bukuSerupa.add(data[i]);
-                    break;
+        ObjectMapper mapper = new ObjectMapper();
+        try{
+            bukuClass buku = mapper.readValue(jsonString,bukuClass.class);
+            for(int i=0; i<buku.getBuku().size();i++){
+                //mencari buku (belum dimasukan)
+//                if(judul == buku.getBuku().get(i).getJudul()){
+//                    this.hasil = buku.getBuku().get(i).getJudul();
+//                }
+                //memasukan buku serupa kedalam array
+                for(int j = 0; j<splited.length;j++){
+                    if(buku.getBuku().get(i).getJudul().contains(splited[j])&&judul!= buku.getBuku().get(i).getJudul()){
+                        bukuSerupa.add(buku.getBuku().get(i).getJudul());
+                        break;
+                    }
                 }
             }
-        }
-        
-        for(int i=0;i<data.length;i++){
-            if(judul == data[i]){
-                this.hasil = data[i];   
+            // print buku ke layar
+//            System.out.println("Buku yang dicari = "+this.hasil);
+            System.out.println("Hasil Pencarian");
+            for(int i = 0;i< bukuSerupa.size();i++){
+                System.out.println(bukuSerupa.get(i));
             }
-        }
-       
-        System.out.println("Buku yang dicari = "+this.hasil);
-        System.out.println("Buku yang mungkin serupa = ");
-        for(int i = 0;i< bukuSerupa.size();i++){
-            System.out.println(bukuSerupa.get(i));
+        }catch(Exception ex){
+            System.out.println(ex.toString());
         }
         
     }

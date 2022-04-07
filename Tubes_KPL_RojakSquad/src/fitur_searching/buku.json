@@ -1,0 +1,34 @@
+{
+    "buku" :[
+        {
+            "judul": "Pengenalan Algoritma 1",
+            "rating":5
+        },
+        {
+            "judul": "Pengenalan Algoritma 2",
+            "rating":4
+        },
+        {
+            "judul": "Rekayasa Perangkat Lunak",
+            "rating":5
+        },
+        {
+            "judul": "Basis Data",
+            "rating":3
+        },
+        {
+            "judul": "Jurnal Arsitektur dan Organisasi Komputer",
+            "rating":5
+        },
+        {
+            "judul": "Jaringan Komputer",
+            "rating":5
+        }
+    ]
+}
+{
+    "buku": [{
+         "judul": "Pengenalan Algoritma 1",
+         "rating":5
+    }]
+}
