@@ -1,11 +1,10 @@
 package Referensi;
 
 public class Jurnal extends referensi {
-  public Jurnal(String judul, String penulis, String kategori, int halaman, String tanggal){
-	  super(judul);
-	  super(penulis);
-	  super(kategori);
-	  super(halaman);
-	  super(tanggal);
-  }
+    private String instansi;
+
+    public Jurnal(String judul, String penulis, String topik, String instansi){
+        super(judul,penulis,topik);
+        this.instansi = instansi;
+    }
 }

@@ -6,17 +6,18 @@ public class referensi {
     private String judul;
     private String penulis;
     private String topik;
+    private long tanggalUpload;
     private double rating;
     private int countR;
-    enum Topik{UiUx, MachineLearning, DataScience};
-    Dictionary dict = new Hashtable();
+   
 
 
     public referensi(String judul, String penulis,String topik){
         this.judul = judul;
         this.penulis = penulis;
         this.topik = topik;
-
+        Date today = new Date();
+        this.tanggalUpload = today.getTime();
         this.rating = 0;
         this.countR = 0;
     }
@@ -52,32 +53,18 @@ public class referensi {
     }
 
 
-    public void setKategori(String kategori){
-        this.penulis = penulis;
+    public void setKategori(String topik){
+        this.topik = topik;
     }
     public String getKategori(){
-        return this.kategori;
+        return topik;
     }
 
-    public void setTanggal(String tanggal){
-        this.tanggal = tanggal;
-    }
-    public String getTanggal(){
-        return this.tanggal;
+    public long getTanggalUp(){
+        return tanggalUpload;
     }
 
 
-    public void uploadReferensi(int topik){
-        dict.put(topik, this);
-    }
-    
-    public void listReferensi(){
-        Enumeration enu = dict.elements();
-        while(enu.hasMoreElements()){
-            System.out.println(enu.nextElement());
-        }
-        
-    }
-
+ 
 
 }
