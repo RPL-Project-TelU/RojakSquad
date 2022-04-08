@@ -1,4 +1,3 @@
-
 package tubes_kpl_rojaksquad;
 import java.util.*;
 import Referensi.*;
@@ -11,26 +10,28 @@ public class Tubes_KPL_RojakSquad {
         String judul;
         String penulis;
         String topik;
+        String jenis;
+        String noJurnal;
 
         
-        System.out.println("Masukan judul:");
+        System.out.print("Masukkan judul:");
         judul = scan.nextLine();
-        System.out.println("Masukan penulis:");
+        System.out.print("Masukkan penulis: ");
         penulis = scan.nextLine();
-        System.out.println("Masukan topik:");
+        System.out.print("Masukkan topik: ");
         topik = scan.nextLine();
+        System.out.print("Masukkan Jenis : ");
+        jenis = scan.nextLine();
+        System.out.print("Masukkan Nomor Jurnal: ")
+        noJurnal = scan.nextLine();
+        
+        referensi buku = new referensi(judul,penulis,topik,jenis);
+        referensi r1 = new Jurnal(judul, penulis, topik, jenis, noJurnal);
+        
+        r1.info();
 
-        
-        referensi buku = new referensi(judul,penulis,topik);
-        
         buku.uploadReferensi(1);
         buku.listReferensi();
-        
-        
-      
-        
-      
-
 
     }
     
