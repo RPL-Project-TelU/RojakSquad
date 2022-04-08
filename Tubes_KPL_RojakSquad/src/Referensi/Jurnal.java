@@ -5,7 +5,6 @@ import java.time.format.DateTimeFormatter;
 
 
 public class Jurnal extends referensi {
-
 	  private int noJurnal;
 
       public Jurnal(String judul, String penulis, String topik, String jenis, int noJurnal) throws IllegalArgumentException {
