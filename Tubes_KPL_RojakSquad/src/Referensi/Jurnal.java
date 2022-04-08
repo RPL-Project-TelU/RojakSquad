@@ -29,9 +29,10 @@ public class Jurnal extends referensi {
         }
             
         }
-        public int getNoJurnal(){
-          return this.noJurnal;
-        }
+
+    public int getNoJurnal(){
+      return this.noJurnal;
+    }
 
 	  
 }
