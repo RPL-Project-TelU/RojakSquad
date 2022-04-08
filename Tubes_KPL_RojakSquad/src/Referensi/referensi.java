@@ -7,17 +7,14 @@ public class referensi {
     private String penulis;
     private String topik;
 
-    private long tanggalUpload;
+    private java.util.Date inputDates;
     private double rating;
     private int countR;
-
     private String jenis;
-    private double rating;
-    private int countR;
+
     enum Topik{UiUx, MachineLearning, DataScience};
     enum Jenis{Internasional, Nasional};
     Dictionary dict = new Hashtable();
-
 
 
     public referensi(String judul, String penulis, String topik, String jenis){
@@ -25,11 +22,10 @@ public class referensi {
         this.penulis = penulis;
         this.topik = topik;
 
-        Date today = new Date();
-        this.tanggalUpload = today.getTime();
+        java.util.Date date = new java.util.Date(); 
+        this.inputDates = date;
 
         this.jenis = jenis;
-
         this.rating = 0;
         this.countR = 0;
     }
@@ -71,8 +67,6 @@ public class referensi {
         return this.penulis;
     }
 
-<<<<<<< HEAD
-
     public void setKategori(String topik){
         this.topik = topik;
     }
@@ -80,19 +74,9 @@ public class referensi {
         return topik;
     }
 
-    public long getTanggalUp(){
-        return tanggalUpload;
-    }
-
-
- 
-=======
-    public void setTanggal(String tanggal){
-        this.tanggal = tanggal;
-    }
-    public String getTanggal(){
-        return this.tanggal;
-    }
+    public java.util.Date getDates(){     
+        return this.inputDates; 
+	}
 
     public void uploadReferensi(int topik){
         dict.put(topik, this);
@@ -106,6 +90,5 @@ public class referensi {
         
     }
 
->>>>>>> c29bf7c9982f5fdd03b39b20b8a18e5aad3bdbbc
 
 }
