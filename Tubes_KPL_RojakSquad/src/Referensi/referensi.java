@@ -51,14 +51,6 @@ public class referensi {
         return this.penulis;
     }
 
-
-    public void setKategori(String kategori){
-        this.penulis = penulis;
-    }
-    public String getKategori(){
-        return this.kategori;
-    }
-
     public void setTanggal(String tanggal){
         this.tanggal = tanggal;
     }
