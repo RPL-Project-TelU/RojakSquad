@@ -10,7 +10,6 @@ public class referensi {
     private long tanggalUpload;
     private double rating;
     private int countR;
-   
 
     private String jenis;
     private double rating;
@@ -25,12 +24,12 @@ public class referensi {
         this.judul = judul;
         this.penulis = penulis;
         this.topik = topik;
-<<<<<<< HEAD
+
         Date today = new Date();
         this.tanggalUpload = today.getTime();
-=======
+
         this.jenis = jenis;
->>>>>>> c29bf7c9982f5fdd03b39b20b8a18e5aad3bdbbc
+
         this.rating = 0;
         this.countR = 0;
     }
