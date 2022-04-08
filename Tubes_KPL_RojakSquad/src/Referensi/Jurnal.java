@@ -1,22 +1,20 @@
-package tubes01kpl;
+package Referensi;
+
 import java.time.LocalDateTime;  
 import java.time.format.DateTimeFormatter;  
 
 
 public class Jurnal extends referensi {
-	private int noJurnal;
-	private int halaman;
-    private java.util.Date inputDates;
 
-	public Jurnal(String judul, String penulis, String topik, int noJurnal){
-		super(judul);       
-		this.noJurnal = noJurnal;
-        java.util.Date date = new java.util.Date(); 
-		this.inputDates = date;
-	}
-	public java.util.Date getDates(){     
-        return this.inputDates; 
-	}
+	  private int noJurnal;
+
+	  public Jurnal(String judul, String penulis, String topik, String jenis, int noJurnal){
+	  	super(judul,penulis,topik,jenis);       
+  		this.noJurnal = noJurnal;
+
+	  }
+    
+
         
     public void setNoJurnal(int noJurnal){
         try {
@@ -35,4 +33,5 @@ public class Jurnal extends referensi {
     }
 
 	  
+
 }

@@ -6,6 +6,8 @@ public class Tubes_KPL_RojakSquad {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         
+
+
         enum topik{UiUx, MachineLearning, DataScience};
         String judul;
         String penulis;
@@ -22,16 +24,18 @@ public class Tubes_KPL_RojakSquad {
         topik = scan.nextLine();
         System.out.print("Masukkan Jenis : ");
         jenis = scan.nextLine();
-        System.out.print("Masukkan Nomor Jurnal: ")
+        System.out.print("Masukkan Nomor Jurnal: ");
         noJurnal = scan.nextLine();
         
         referensi buku = new referensi(judul,penulis,topik,jenis);
-        referensi r1 = new Jurnal(judul, penulis, topik, jenis, noJurnal);
+
+        //referensi r1 = new Jurnal(judul, penulis, topik, jenis, noJurnal);
         
-        r1.info();
+        //r1.info();
 
         buku.uploadReferensi(1);
         buku.listReferensi();
+
 
     }
     
