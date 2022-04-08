@@ -5,17 +5,14 @@ import java.util.Scanner;
 public class Tubes_KPL_RojakSquad {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        
-
-
+   
         enum topik{UiUx, MachineLearning, DataScience};
         String judul;
         String penulis;
         String topik;
         String jenis;
-        String noJurnal;
-
-        
+        int noJurnal;
+   
         System.out.print("Masukkan judul:");
         judul = scan.nextLine();
         System.out.print("Masukkan penulis: ");
@@ -25,16 +22,18 @@ public class Tubes_KPL_RojakSquad {
         System.out.print("Masukkan Jenis : ");
         jenis = scan.nextLine();
         System.out.print("Masukkan Nomor Jurnal: ");
-        noJurnal = scan.nextLine();
+        noJurnal = scan.nextInt();
         
-        referensi buku = new referensi(judul,penulis,topik,jenis);
-
-        //referensi r1 = new Jurnal(judul, penulis, topik, jenis, noJurnal);
+        try{
+            referensi buku = new referensi(judul,penulis,topik,jenis);
+            referensi r1 = new Jurnal(judul, penulis, topik, jenis, noJurnal);
+           
+        }catch (IllegalArgumentException e){
+            System.out.println("Data tidak valid, " + e.getMessage());
+        }
         
-        //r1.info();
-
-        buku.uploadReferensi(1);
-        buku.listReferensi();
+        // buku.uploadReferensi(1);
+        // buku.listReferensi();
 
 
     }
