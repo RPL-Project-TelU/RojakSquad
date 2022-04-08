@@ -6,13 +6,15 @@ public class referensi {
     private String judul;
     private String penulis;
     private String topik;
+    private String jenis;
     private double rating;
     private int countR;
     enum Topik{UiUx, MachineLearning, DataScience};
+    enum Jenis{Internasional, Nasional};
     Dictionary dict = new Hashtable();
 
 
-    public referensi(String judul, String penulis,String topik){
+    public referensi(String judul, String penulis, String topik){
         this.judul = judul;
         this.penulis = penulis;
         this.topik = topik;
@@ -44,6 +46,13 @@ public class referensi {
         return topik;
     }
 
+    public void setJenis(String jenis){
+        this.jenis = jenis;
+    }
+    public String getJenis(){
+        return this.jenis;
+    }
+
     public void setPenulis(String penulis){
         this.penulis = penulis;
     }
@@ -57,7 +66,6 @@ public class referensi {
     public String getTanggal(){
         return this.tanggal;
     }
-
 
     public void uploadReferensi(int topik){
         dict.put(topik, this);
