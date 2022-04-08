@@ -35,6 +35,7 @@ public class Tubes_KPL_RojakSquad {
         noJurnal = scan.nextLine();
         
         referensi buku = new referensi(judul,penulis,topik,jenis);
+        
         referensi r1 = new Jurnal(judul, penulis, topik, jenis, noJurnal);
         
         r1.info();
