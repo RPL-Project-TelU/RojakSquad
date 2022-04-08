@@ -13,7 +13,7 @@ public class Jurnal extends referensi {
     private java.util.Date inputDates;
 
 	  public Jurnal(String judul, String penulis, String topik, int noJurnal){
-	  	super(judul);       
+	  	super(judul,penulis,topik);       
   		this.noJurnal = noJurnal;
       java.util.Date date = new java.util.Date(); 
 		  this.inputDates = date;
