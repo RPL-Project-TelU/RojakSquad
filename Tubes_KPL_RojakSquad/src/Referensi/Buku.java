@@ -5,11 +5,11 @@ public class Buku extends referensi {
     
     public Buku(String judul, String penulis, String topik,String jenis,String publisher){
 	    super(judul,penulis,topik,jenis);
-      this.publisher = publisher;
+        this.publisher = publisher;
     }
 
     public String getPublisher(){
-      return this.publisher;
+        return this.publisher;
     }
 
 }
