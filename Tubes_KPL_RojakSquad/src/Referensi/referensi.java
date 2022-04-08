@@ -14,11 +14,11 @@ public class referensi {
     Dictionary dict = new Hashtable();
 
 
-    public referensi(String judul, String penulis, String topik){
+    public referensi(String judul, String penulis, String topik, String jenis){
         this.judul = judul;
         this.penulis = penulis;
         this.topik = topik;
-
+        this.jenis = jenis;
         this.rating = 0;
         this.countR = 0;
     }

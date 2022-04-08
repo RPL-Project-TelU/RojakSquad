@@ -10,6 +10,8 @@ public class Tubes_KPL_RojakSquad {
         String judul;
         String penulis;
         String topik;
+        String jenis;
+        String noJurnal;
 
         
         System.out.print("Masukkan judul:");
@@ -18,11 +20,13 @@ public class Tubes_KPL_RojakSquad {
         penulis = scan.nextLine();
         System.out.print("Masukkan topik: ");
         topik = scan.nextLine();
+        System.out.print("Masukkan Jenis : ");
+        jenis = scan.nextLine();
         System.out.print("Masukkan Nomor Jurnal: ")
-
+        noJurnal = scan.nextLine();
         
-        referensi buku = new referensi(judul,penulis,topik);
-        referensi r1 = new Jurnal(judul, penulis, topik, noJurnal);
+        referensi buku = new referensi(judul,penulis,topik,jenis);
+        referensi r1 = new Jurnal(judul, penulis, topik, jenis, noJurnal);
         
         r1.info();
 
