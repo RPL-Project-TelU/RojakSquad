@@ -1,10 +1,14 @@
 package tubes_kpl_rojaksquad;
+import java.io.BufferedOutputStream;
 import java.util.*;
 import Referensi.*;
 import java.util.Scanner;
 public class Tubes_KPL_RojakSquad {
     public static void main(String[] args) {
+
+
         Scanner scan = new Scanner(System.in);
+        
    
         enum topik{UiUx, MachineLearning, DataScience};
         String judul;
@@ -23,17 +27,23 @@ public class Tubes_KPL_RojakSquad {
         jenis = scan.nextLine();
         System.out.print("Masukkan Nomor Jurnal: ");
         noJurnal = scan.nextInt();
+
         
         try{
-            referensi buku = new referensi(judul,penulis,topik,jenis);
+            referensi buku = new Buku(judul,penulis,topik,jenis,"Gramedia");
             referensi r1 = new Jurnal(judul, penulis, topik, jenis, noJurnal);
+            
+            buku.uploadReferensi("Buku");
+            buku.info();
            
         }catch (IllegalArgumentException e){
             System.out.println("Data tidak valid, " + e.getMessage());
         }
+
+
         
-        // buku.uploadReferensi(1);
-        // buku.listReferensi();
+        
+      
 
 
     }
