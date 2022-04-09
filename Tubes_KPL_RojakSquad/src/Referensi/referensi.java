@@ -11,10 +11,9 @@ public class referensi {
     private double rating;
     private int countR;
     private String jenis;
-
-    enum Topik{UiUx, MachineLearning, DataScience};
     enum Jenis{Internasional, Nasional};
-    Dictionary dict = new Hashtable();
+
+    private HashMap dataBase;
 
 
     public referensi(String judul, String penulis, String topik, String jenis){
@@ -78,17 +77,11 @@ public class referensi {
         return this.inputDates; 
 	}
 
-    public void uploadReferensi(int topik){
-        dict.put(topik, this);
-    }
-    
-    public void listReferensi(){
-        Enumeration enu = dict.elements();
-        while(enu.hasMoreElements()){
-            System.out.println(enu.nextElement());
-        }
+    public void uploadReferensi(String jenis){
         
     }
+    
+  
 
 
 }
