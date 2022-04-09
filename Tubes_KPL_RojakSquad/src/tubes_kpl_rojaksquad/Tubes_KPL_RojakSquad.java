@@ -34,8 +34,10 @@ public class Tubes_KPL_RojakSquad {
             referensi r1 = new Jurnal(judul, penulis, topik, jenis, noJurnal);
             
             buku.uploadReferensi("Buku");
+            r1.uploadReferensi("Jurnal");
             buku.info();
-           
+            r1.info();
+
         }catch (IllegalArgumentException e){
             System.out.println("Data tidak valid, " + e.getMessage());
         }
