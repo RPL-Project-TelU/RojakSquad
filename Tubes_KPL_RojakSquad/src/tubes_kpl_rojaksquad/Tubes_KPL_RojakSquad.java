@@ -4,10 +4,10 @@ import Referensi.*;
 import java.util.Scanner;
 public class Tubes_KPL_RojakSquad {
     public static void main(String[] args) {
+
+        
         Scanner scan = new Scanner(System.in);
         
-
-
         enum topik{UiUx, MachineLearning, DataScience};
         String judul;
         String penulis;
