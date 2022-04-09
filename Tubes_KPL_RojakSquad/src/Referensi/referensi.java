@@ -6,25 +6,38 @@ public class referensi {
     private String judul;
     private String penulis;
     private String topik;
-
+    private String jenis;
     private java.util.Date inputDates;
     private double rating;
     private int countR;
+
     private String jenis;
+
     enum Jenis{Internasional, Nasional};
 
     private HashMap dataBase;
 
 
-    public referensi(String judul, String penulis, String topik, String jenis){
-        this.judul = judul;
+    public referensi(String judul, String penulis, String topik, String jenis) throws IllegalArgumentException{
+        if (judul == null || judul.trim().isEmpty()){
+            throw new IllegalArgumentException("Judul referensi kosong");
+        }
+        if (penulis == null || penulis.trim().isEmpty()){
+            throw new IllegalArgumentException("Penulis referensi kosong");
+        }
+        if (topik == null || topik.trim().isEmpty()){
+            throw new IllegalArgumentException("Topik referensi kosong");
+        }
+        if (jenis == null || jenis.trim().isEmpty()){
+            throw new IllegalArgumentException("Jenis referensi kosong");
+        }
+        this.judul = judul;  
         this.penulis = penulis;
         this.topik = topik;
-
-        java.util.Date date = new java.util.Date(); 
-        this.inputDates = date;
-
         this.jenis = jenis;
+        
+        java.util.Date date = new java.util.Date(); 
+        this.inputDates = date;       
         this.rating = 0;
         this.countR = 0;
     }
@@ -34,7 +47,7 @@ public class referensi {
         this.rating = (this.rating + rate)/this.countR;
     }
 
-    public double getRaring(){
+    public double getRating(){
         return rating;
     }
 
@@ -66,13 +79,6 @@ public class referensi {
         return this.penulis;
     }
 
-    public void setKategori(String topik){
-        this.topik = topik;
-    }
-    public String getKategori(){
-        return topik;
-    }
-
     public java.util.Date getDates(){     
         return this.inputDates; 
 	}
@@ -82,6 +88,5 @@ public class referensi {
     }
     
   
-
 
 }
