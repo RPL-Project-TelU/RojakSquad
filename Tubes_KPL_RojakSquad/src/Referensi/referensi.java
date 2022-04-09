@@ -10,11 +10,12 @@ public class referensi {
     private java.util.Date inputDates;
     private double rating;
     private int countR;
-    
 
-    enum Topik{UiUx, MachineLearning, DataScience};
+    private String jenis;
+
     enum Jenis{Internasional, Nasional};
-    Dictionary dict = new Hashtable();
+
+    private HashMap dataBase;
 
 
     public referensi(String judul, String penulis, String topik, String jenis) throws IllegalArgumentException{
@@ -82,16 +83,10 @@ public class referensi {
         return this.inputDates; 
 	}
 
-    public void uploadReferensi(int topik){
-        dict.put(topik, this);
-    }
-    
-    public void listReferensi(){
-        Enumeration enu = dict.elements();
-        while(enu.hasMoreElements()){
-            System.out.println(enu.nextElement());
-        }
+    public void uploadReferensi(String jenis){
         
     }
+    
+  
 
 }
