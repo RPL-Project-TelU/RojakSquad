@@ -1,8 +1,5 @@
 package Referensi;
 
-import java.time.LocalDateTime;  
-import java.time.format.DateTimeFormatter;  
-
 
 public class Jurnal extends referensi {
 	private int noJurnal;
@@ -24,4 +21,12 @@ public class Jurnal extends referensi {
       public int getNoJurnal(){
             return this.noJurnal;
       }		  
+
+      @Override
+      public void uploadReferensi(String tipe){
+            List listR = this.getList();
+            listR.add(this);
+            Map dataR = this.getDB();
+            dataR.put(tipe,listR);
+      }
 }
