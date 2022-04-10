@@ -18,16 +18,16 @@ public class referensi {
     private List<referensi> listR = new ArrayList<referensi>();
 
     public referensi(String judul, String penulis, String topik, String jenis) throws IllegalArgumentException{
-        if (judul == null || judul.trim().isEmpty()){
+        if (judul == null || judul.isEmpty()){
             throw new IllegalArgumentException("Judul referensi kosong");
         }
-        if (penulis == null || penulis.trim().isEmpty()){
+        if (penulis == null || penulis.isEmpty()){
             throw new IllegalArgumentException("Penulis referensi kosong");
         }
-        if (topik == null || topik.trim().isEmpty()){
+        if (topik == null || topik.isEmpty()){
             throw new IllegalArgumentException("Topik referensi kosong");
         }
-        if (jenis == null || jenis.trim().isEmpty()){
+        if (jenis == null || jenis.isEmpty()){
             throw new IllegalArgumentException("Jenis referensi kosong");
         }
         this.uploadDate = new Date();
