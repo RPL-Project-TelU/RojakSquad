@@ -44,7 +44,7 @@ public class Searching {
 "    ]\n" +
 "}";
         
-    public void cariBuku(String judul){ 
+    public <T> void cariBuku(T judul){ 
         // membuat array untuk mengecek huruf pada setiap data
         String[] splited = judul.split("\\s+");
         List<String> bukuSerupa = new ArrayList<String>();
