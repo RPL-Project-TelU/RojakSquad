@@ -77,16 +77,17 @@ public class UploadReferensi {
                         Ljurnal.add(jurnal);
                         dataBase.put("Jurnal", Ljurnal);
 
-                        System.out.println(Ljurnal);
+                        
                         
                     }catch (IllegalArgumentException e){
                         System.out.println("Data tidak valid, " + e.getMessage());
                     }
                     break;
                 case 3:
+                    state = State.Upload;
                     for (Map.Entry<String,ArrayList<referensi>> entry: dataBase.entrySet()) {
             
-                        System.out.println("Jenis Referensi:" +entry.getKey());
+                        System.out.println("=====KUMPULAN REFERENSI "+entry.getKey()+"======");
                         
             
                         for(int i=0;i<entry.getValue().size(); i++) {
@@ -104,8 +105,9 @@ public class UploadReferensi {
                             }
                             System.out.println("Rating:" + r1.getRating());
                             System.out.println("Tanggal Upload:" + r1.getDates());
-                            System.out.println("------------------");
+                            
                         }
+                        System.out.println("------------------");
                     }
                     break;
 
