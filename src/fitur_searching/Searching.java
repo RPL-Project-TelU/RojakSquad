@@ -52,7 +52,7 @@ public class Searching {
         ObjectMapper mapper = new ObjectMapper();
         try{
             bukuClass buku = mapper.readValue(jsonString,bukuClass.class);
-            for(int i=0; i<buku.getBuku().size();i++){
+            for(int i=0; i<buku.getBuku().size();i++){  
                 //memasukan buku serupa kedalam array
                 for(int j = 0; j<splited.length;j++){
                     if(buku.getBuku().get(i).getJudul().contains(splited[j])&&judul!= buku.getBuku().get(i).getJudul()){
