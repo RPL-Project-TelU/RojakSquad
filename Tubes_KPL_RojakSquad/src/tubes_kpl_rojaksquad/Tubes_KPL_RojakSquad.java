@@ -23,7 +23,7 @@ public class Tubes_KPL_RojakSquad {
             System.out.print("Masukkan pilihan: ");
             pilihan1 = scan.nextInt();
             scan.nextLine();
-            
+          
             switch(pilihan1){
                 case 1:
                     state = State.Buku;
@@ -75,7 +75,6 @@ public class Tubes_KPL_RojakSquad {
                     System.out.println("Menu yang anda pilih tidak valid, silahkan coba lagi");
                     break;
             }
-            
         }
         
     }

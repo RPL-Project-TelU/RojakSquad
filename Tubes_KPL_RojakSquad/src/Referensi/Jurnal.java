@@ -1,8 +1,14 @@
 package Referensi;
 
 
+import java.time.LocalDateTime;  
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.Map;  
+
+
 public class Jurnal extends referensi {
-	private int noJurnal;
+	    private int noJurnal;
 
       public Jurnal(String judul, String penulis, String topik, String jenis, int noJurnal) throws IllegalArgumentException {
 	        super(judul,penulis,topik,jenis); 
@@ -20,13 +26,15 @@ public class Jurnal extends referensi {
 
       public int getNoJurnal(){
             return this.noJurnal;
-      }		  
 
+      }
       @Override
       public void uploadReferensi(String tipe){
-            List listR = this.getList();
-            listR.add(this);
-            Map dataR = this.getDB();
-            dataR.put(tipe,listR);
-      }
+
+        List listR = this.getList();
+        listR.add(this);
+        Map dataR = this.getDB();
+        dataR.put(tipe,listR);
+      }		  
+
 }
