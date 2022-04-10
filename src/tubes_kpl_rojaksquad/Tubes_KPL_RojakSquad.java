@@ -12,8 +12,8 @@ public class Tubes_KPL_RojakSquad {
      */
     public static void main(String[] args){
         Searching s = new Searching();
-        s.cariBuku("Rekayasa");
 
+        s.cariBuku(6);
     
     }
 }
