@@ -3,6 +3,7 @@ package Referensi;
 
 import java.time.LocalDateTime;  
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;  
 
@@ -28,13 +29,12 @@ public class Jurnal extends referensi {
             return this.noJurnal;
 
       }
-      @Override
-      public void uploadReferensi(String tipe){
 
-        List listR = this.getList();
-        listR.add(this);
-        Map dataR = this.getDB();
-        dataR.put(tipe,listR);
-      }		  
+      
+      
+          
+    
+        
+        
 
 }
