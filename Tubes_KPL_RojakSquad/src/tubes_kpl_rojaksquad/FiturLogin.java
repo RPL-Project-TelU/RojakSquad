@@ -40,7 +40,7 @@ public class FiturLogin {
                                 obj.Author(username[i],password[i]);
                             }else if(status[i].equals("mahasiswa")){
                                 state = State.MAHASISWA;
-                                mhs.Mahasiswa(username[i],password[i]);
+                                mhs.Login(username[i],password[i]);
                             }
                         }
                     }
