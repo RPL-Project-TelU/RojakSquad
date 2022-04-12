@@ -1,4 +1,4 @@
-package fiturlogin;
+package fitur_login;
 
 public class Author extends Mahasiswa implements User {
     public void Login(String user, String pass){

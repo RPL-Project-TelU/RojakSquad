@@ -1,4 +1,4 @@
-package fiturlogin;
+package fitur_login;
 
 public class Mahasiswa implements User {
     String user,pass;

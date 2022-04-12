@@ -1,4 +1,4 @@
-package fiturlogin;
+package fitur_login;
 
 import java.util.Scanner;
 
@@ -6,7 +6,7 @@ public class FiturLogin {
 
     enum State {LOGIN,REGISTER,MAHASISWA,AUTHOR,EXIT};
     
-    public static void main(String[] args){
+    public void login(){
     	Author obj = new Author();
         Mahasiswa mhs = new Mahasiswa();
         State state = State.LOGIN; 

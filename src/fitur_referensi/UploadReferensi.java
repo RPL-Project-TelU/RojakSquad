@@ -1,4 +1,4 @@
-package Referensi;
+package fitur_referensi;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,6 +19,10 @@ public class UploadReferensi {
 
     enum State{Upload, Buku, Jurnal, Exit};
 
+    public HashMap getDatabase(){
+        return dataBase;
+    }
+    
     public void upload(){
 
 
@@ -96,12 +100,13 @@ public class UploadReferensi {
                             System.out.println("Judul:" +r1.getJudul());
                             System.out.println("Penulis:" + r1.getPenulis());
                             System.out.println("Topik:" + r1.getTopik());
-                            if(r1 instanceof Buku buku){
-                                
-                                System.out.println("Penerbit: "+buku.getPublisher());
+                            if(r1 instanceof Buku){
+                                Buku temp = (Buku)r1;
+                                System.out.println("Penerbit: "+ temp.getPublisher());
                             }
-                            if(r1 instanceof Jurnal jurnal){
-                                System.out.println("nomer jurnal: "+jurnal.getNoJurnal());
+                            if(r1 instanceof Jurnal){
+                                Jurnal temp = (Jurnal)r1;
+                                System.out.println("nomer jurnal: "+ temp.getNoJurnal());
                             }
                             System.out.println("Rating:" + r1.getRating());
                             System.out.println("Tanggal Upload:" + r1.getDates());
