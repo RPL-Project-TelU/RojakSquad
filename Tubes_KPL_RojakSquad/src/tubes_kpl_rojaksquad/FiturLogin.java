@@ -37,7 +37,7 @@ public class FiturLogin {
                         if(usern.equals(username[i]) && passw.equals(password[i])){
                             if(status[i].equals("author")){
                                 state = State.AUTHOR;
-                                obj.Author(username[i],password[i]);
+                                obj.Login(username[i],password[i]);
                             }else if(status[i].equals("mahasiswa")){
                                 state = State.MAHASISWA;
                                 mhs.Login(username[i],password[i]);
