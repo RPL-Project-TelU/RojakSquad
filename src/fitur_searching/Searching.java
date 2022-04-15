@@ -5,44 +5,22 @@
  */
 package fitur_searching;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
+import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author powny
  */
 public class Searching {
     private String hasil = "";
-    private String jsonString = "{\n" +
-"    \"buku\" :[\n" +
-"        {\n" +
-"            \"judul\": \"Pengenalan Algoritma 1\",\n" +
-"            \"rating\":5\n" +
-"        },\n" +
-"        {\n" +
-"            \"judul\": \"Pengenalan Algoritma 2\",\n" +
-"            \"rating\":4\n" +
-"        },\n" +
-"        {\n" +
-"            \"judul\": \"Rekayasa Perangkat Lunak\",\n" +
-"            \"rating\":5\n" +
-"        },\n" +
-"        {\n" +
-"            \"judul\": \"Basis Data\",\n" +
-"            \"rating\":3\n" +
-"        },\n" +
-"        {\n" +
-"            \"judul\": \"Jurnal Arsitektur dan Organisasi Komputer\",\n" +
-"            \"rating\":5\n" +
-"        },\n" +
-"        {\n" +
-"            \"judul\": \"Rekayasa Industri\",\n" +
-"            \"rating\":5\n" +
-"        }\n" +
-"    ]\n" +
-"}";
         
     public <T> void cariBuku(T judul){ 
         
@@ -50,16 +28,18 @@ public class Searching {
             // membuat array untuk mengecek huruf pada setiap data
             String[] splited = judul.toString().split("\\s");
             List<String> bukuSerupa = new ArrayList<String>();
-
-            ObjectMapper mapper = new ObjectMapper();
-            try{
-                bukuClass buku = mapper.readValue(jsonString,bukuClass.class);
-                for(int i=0; i<buku.getBuku().size();i++){
-                    //memasukan buku serupa kedalam array
-                    for(int j = 0; j<splited.length;j++){
-                        if(buku.getBuku().get(i).getJudul().contains(splited[j])&&judul!= buku.getBuku().get(i).getJudul()){
-                            bukuSerupa.add(buku.getBuku().get(i).getJudul());
-                            break;  
+            
+            Gson gson = new Gson();
+            try {
+                Reader reader = Files.newBufferedReader(Paths.get("C:\\College\\Programming\\Konstruksi Perangkat Lunak\\Tugas Besar\\RojakSquad\\src\\fitur_searching\\buku.json"));
+                bukuClass buku = gson.fromJson(reader,bukuClass.class);
+                    try{
+                        for(int i=0; i<buku.getBuku().size();i++){
+                        //memasukan buku serupa kedalam array
+                            for(int j = 0; j<splited.length;j++){
+                                if(buku.getBuku().get(i).getJudul().contains(splited[j])&&judul!= buku.getBuku().get(i).getJudul()){
+                                    bukuSerupa.add(buku.getBuku().get(i).getJudul());
+                                    break;  
                         }
                     }
                 }
@@ -71,11 +51,19 @@ public class Searching {
             }catch(Exception ex){
                 System.out.println(ex.toString());
             }
+            } catch (IOException ex) {
+                Logger.getLogger(Searching.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            
+            
         }else if(judul instanceof Integer){
             List<String> bukuRating = new ArrayList<String>();
             ObjectMapper mapper = new ObjectMapper();
             try{
-                bukuClass buku = mapper.readValue(jsonString,bukuClass.class);
+                Gson gson = new Gson();
+                Reader reader = Files.newBufferedReader(Paths.get("C:\\College\\Programming\\Konstruksi Perangkat Lunak\\Tugas Besar\\RojakSquad\\src\\fitur_searching\\buku.json"));
+                bukuClass buku = gson.fromJson(reader,bukuClass.class);
                 for (int i=0;i<buku.getBuku().size();i++){
                     if(buku.getBuku().get(i).getRating()>= Integer.valueOf(judul.toString())){
                         bukuRating.add(buku.getBuku().get(i).getJudul());

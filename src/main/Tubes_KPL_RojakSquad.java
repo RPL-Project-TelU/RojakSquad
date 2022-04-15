@@ -13,14 +13,14 @@ public class Tubes_KPL_RojakSquad {
      * @param args the command line arguments
      */
     public static void main(String[] args){
-        FiturLogin login = new FiturLogin();
-        login.login();
-//        
-        UploadReferensi upload = new UploadReferensi();
-        upload.upload();
+//        FiturLogin login = new FiturLogin();
+//        login.login();
+////        
+//        UploadReferensi upload = new UploadReferensi();
+//        upload.upload();
         
         Searching searching = new Searching();
-        searching.cariBuku("Pengenalan");
+        searching.cariBuku("Algoritma");
         
 
           
