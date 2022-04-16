@@ -22,26 +22,26 @@ import java.util.logging.Logger;
  */
 public class Searching {
     private String hasil = "";
-    int metode;
-    String inputStr;
-    int inputInt;
+//    int metode;
+//    String inputStr;
+//    int inputInt;
     
-    public Searching(){
-        Scanner myObj = new Scanner(System.in);
-        System.out.print("Pilih metode pencarian: " + "\n1. Judul buku/jurnal" + "\n2. Rating buku/jurnal" + "\nMetode: ");
-        metode = myObj.nextInt();
-        if(metode == 1){
-            System.out.print("Masukkan judul buku/jurnal: ");
-            inputStr = myObj.next();
-            cariBuku(inputStr);
-        }
-        else if(metode == 2){
-            System.out.print("Masukkan rating buku/jurnal: ");
-            inputInt = myObj.nextInt();
-            cariBuku(inputInt);
-        }
-        
-    } 
+//    public Searching(){
+//        Scanner myObj = new Scanner(System.in);
+//        System.out.print("Pilih metode pencarian: " + "\n1. Judul buku/jurnal" + "\n2. Rating buku/jurnal" + "\nMetode: ");
+//        metode = myObj.nextInt();
+//        if(metode == 1){
+//            System.out.print("Masukkan judul buku/jurnal: ");
+//            inputStr = myObj.next();
+//            cariBuku(inputStr);
+//        }
+//        else if(metode == 2){
+//            System.out.print("Masukkan rating buku/jurnal: ");
+//            inputInt = myObj.nextInt();
+//            cariBuku(inputInt);
+//        }
+//        
+//    } 
     public <T> List<String> cariBuku(T judul){ 
         
         if(judul instanceof String){    
@@ -52,12 +52,7 @@ public class Searching {
             Gson gson = new Gson();
             try {
                 //DIRECTORY FILE JSON SILAHKAN DIUBAH SESUAI DENGAN DIRECTORY MASING-MASING
-                //DIRECTORY FILE JSON SILAHKAN DIUBAH SESUAI DENGAN DIRECTORY MASING-MASING
-                //DIRECTORY FILE JSON SILAHKAN DIUBAH SESUAI DENGAN DIRECTORY MASING-MASING
-                Reader reader = Files.newBufferedReader(Paths.get("C:\\Users\\Zacharia Bachtiar\\Desktop\\BangJek\\Coding\\Java\\Tubes KPL\\RojakSquad\\src\\fitur_searching\\buku.json"));
-                //DIRECTORY FILE JSON SILAHKAN DIUBAH SESUAI DENGAN DIRECTORY MASING-MASING
-                //DIRECTORY FILE JSON SILAHKAN DIUBAH SESUAI DENGAN DIRECTORY MASING-MASING
-                //DIRECTORY FILE JSON SILAHKAN DIUBAH SESUAI DENGAN DIRECTORY MASING-MASING
+                Reader reader = Files.newBufferedReader(Paths.get("C:\\College\\Programming\\Konstruksi Perangkat Lunak\\Tugas Besar\\RojakSquad\\src\\fitur_searching\\buku.json"));                //DIRECTORY FILE JSON SILAHKAN DIUBAH SESUAI DENGAN DIRECTORY MASING-MASING
                 bukuClass buku = gson.fromJson(reader,bukuClass.class);
                     
                 for(int i=0; i<buku.getBuku().size();i++){
@@ -74,8 +69,8 @@ public class Searching {
                 for(int i = 0;i< bukuSerupa.size();i++){
                     System.out.println(bukuSerupa.get(i));
                 }
-                   
-                 }
+                return bukuSerupa;  
+                }
             catch(Exception ex){
                         System.out.println(ex.toString());
             }
@@ -84,15 +79,11 @@ public class Searching {
             
         }else if(judul instanceof Integer){
             List<Buku> bukuRating = new ArrayList<Buku>();
+            List<String> bukuHasil = new ArrayList<String>();
             try{
                 Gson gson = new Gson();
                 //DIRECTORY FILE JSON SILAHKAN DIUBAH SESUAI DENGAN DIRECTORY MASING-MASING
-                //DIRECTORY FILE JSON SILAHKAN DIUBAH SESUAI DENGAN DIRECTORY MASING-MASING
-                //DIRECTORY FILE JSON SILAHKAN DIUBAH SESUAI DENGAN DIRECTORY MASING-MASING
                 Reader reader = Files.newBufferedReader(Paths.get("C:\\Users\\Zacharia Bachtiar\\Desktop\\BangJek\\Coding\\Java\\Tubes KPL\\RojakSquad\\src\\fitur_searching\\buku.json"));
-                //DIRECTORY FILE JSON SILAHKAN DIUBAH SESUAI DENGAN DIRECTORY MASING-MASING
-                //DIRECTORY FILE JSON SILAHKAN DIUBAH SESUAI DENGAN DIRECTORY MASING-MASING
-                //DIRECTORY FILE JSON SILAHKAN DIUBAH SESUAI DENGAN DIRECTORY MASING-MASING
                 bukuClass buku = gson.fromJson(reader,bukuClass.class);
                 for (int i=0;i<buku.getBuku().size();i++){
                     if(buku.getBuku().get(i).getRating()>= ((Integer) judul).intValue()){
@@ -102,7 +93,9 @@ public class Searching {
                  System.out.println("\nHasil Pencarian");
                 for(int i = 0;i< bukuRating.size();i++){
                     System.out.println(bukuRating.get(i).getJudul() + " dengan rating " + bukuRating.get(i).getRating());
+                    bukuHasil.add(bukuRating.get(i).getJudul());
                 }
+                return bukuHasil;
             }catch(Exception ex){
                 System.out.println(ex.toString());
             }
