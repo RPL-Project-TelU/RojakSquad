@@ -22,7 +22,7 @@ import java.util.logging.Logger;
 public class Searching {
     private String hasil = "";
         
-    public <T> void cariBuku(T judul){ 
+    public <T> List<String> cariBuku(T judul){ 
         
         if(judul instanceof String){    
             // membuat array untuk mengecek huruf pada setiap data
@@ -43,14 +43,15 @@ public class Searching {
                         }
                     }
                 }
-                // print buku ke layar
-                System.out.println("Hasil Pencarian");
-                for(int i = 0;i< bukuSerupa.size();i++){
-                    System.out.println(bukuSerupa.get(i));
+                    // print buku ke layar
+                    System.out.println("Hasil Pencarian");
+                    for(int i = 0;i< bukuSerupa.size();i++){
+                        System.out.println(bukuSerupa.get(i));
+                    }
+                    return bukuSerupa;
+                }catch(Exception ex){
+                    System.out.println(ex.toString());
                 }
-            }catch(Exception ex){
-                System.out.println(ex.toString());
-            }
             } catch (IOException ex) {
                 Logger.getLogger(Searching.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -73,10 +74,13 @@ public class Searching {
                 for(int i = 0;i< bukuRating.size();i++){
                     System.out.println(bukuRating.get(i));
                 }
+                return bukuRating;
             }catch(Exception ex){
                 System.out.println(ex.toString());
             }
         }
+        return null;
+        
         
     }
 }

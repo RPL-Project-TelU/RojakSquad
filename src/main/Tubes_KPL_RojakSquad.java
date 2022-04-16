@@ -19,8 +19,8 @@ public class Tubes_KPL_RojakSquad {
 //        UploadReferensi upload = new UploadReferensi();
 //        upload.upload();
         
-        Searching searching = new Searching();
-        searching.cariBuku("Algoritma");
+        Search searching = new Search();
+        
         
 
           
