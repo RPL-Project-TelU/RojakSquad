@@ -22,28 +22,8 @@ import java.util.logging.Logger;
  */
 public class Searching {
     private String hasil = "";
-//    int metode;
-//    String inputStr;
-//    int inputInt;
-    
-//    public Searching(){
-//        Scanner myObj = new Scanner(System.in);
-//        System.out.print("Pilih metode pencarian: " + "\n1. Judul buku/jurnal" + "\n2. Rating buku/jurnal" + "\nMetode: ");
-//        metode = myObj.nextInt();
-//        if(metode == 1){
-//            System.out.print("Masukkan judul buku/jurnal: ");
-//            inputStr = myObj.next();
-//            cariBuku(inputStr);
-//        }
-//        else if(metode == 2){
-//            System.out.print("Masukkan rating buku/jurnal: ");
-//            inputInt = myObj.nextInt();
-//            cariBuku(inputInt);
-//        }
-//        
-//    } 
     public <T> List<String> cariBuku(T judul){ 
-        
+        // searching by string
         if(judul instanceof String){    
             // membuat array untuk mengecek huruf pada setiap data
             String[] splited = judul.toString().split("\\s");
@@ -51,8 +31,7 @@ public class Searching {
             
             Gson gson = new Gson();
             try {
-                //DIRECTORY FILE JSON SILAHKAN DIUBAH SESUAI DENGAN DIRECTORY MASING-MASING
-                Reader reader = Files.newBufferedReader(Paths.get(System.getProperty("user.dir")+"\\src\\fitur_searching\\buku.json"));                //DIRECTORY FILE JSON SILAHKAN DIUBAH SESUAI DENGAN DIRECTORY MASING-MASING
+                Reader reader = Files.newBufferedReader(Paths.get(System.getProperty("user.dir")+"\\src\\fitur_searching\\buku.json"));
                 bukuClass buku = gson.fromJson(reader,bukuClass.class);
                     
                 for(int i=0; i<buku.getBuku().size();i++){
@@ -61,39 +40,26 @@ public class Searching {
                       if(buku.getBuku().get(i).getJudul().contains(splited[j])&&judul!= buku.getBuku().get(i).getJudul()){
                       bukuSerupa.add(buku.getBuku().get(i).getJudul());
                       break;  
-                            }
+                        }
                     }
-                }
-                // print buku ke layar
-                System.out.println("\nHasil Pencarian");
-                for(int i = 0;i< bukuSerupa.size();i++){
-                    System.out.println(bukuSerupa.get(i));
                 }
                 return bukuSerupa;  
                 }
             catch(Exception ex){
                         System.out.println(ex.toString());
             }
-
-            
-            
+        // Searching By Rating
         }else if(judul instanceof Integer){
             List<Buku> bukuRating = new ArrayList<Buku>();
             List<String> bukuHasil = new ArrayList<String>();
             try{
                 Gson gson = new Gson();
-                //DIRECTORY FILE JSON SILAHKAN DIUBAH SESUAI DENGAN DIRECTORY MASING-MASING
-                Reader reader = Files.newBufferedReader(Paths.get("C:\\Users\\Zacharia Bachtiar\\Desktop\\BangJek\\Coding\\Java\\Tubes KPL\\RojakSquad\\src\\fitur_searching\\buku.json"));
+                Reader reader = Files.newBufferedReader(Paths.get(System.getProperty("user.dir")+"\\src\\fitur_searching\\buku.json"));
                 bukuClass buku = gson.fromJson(reader,bukuClass.class);
                 for (int i=0;i<buku.getBuku().size();i++){
                     if(buku.getBuku().get(i).getRating()>= ((Integer) judul).intValue()){
                         bukuRating.add(buku.getBuku().get(i));
                     }
-                }
-                 System.out.println("\nHasil Pencarian");
-                for(int i = 0;i< bukuRating.size();i++){
-                    System.out.println(bukuRating.get(i).getJudul() + " dengan rating " + bukuRating.get(i).getRating());
-                    bukuHasil.add(bukuRating.get(i).getJudul());
                 }
                 return bukuHasil;
             }catch(Exception ex){
