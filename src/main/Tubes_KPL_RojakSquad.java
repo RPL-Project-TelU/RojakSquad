@@ -14,18 +14,20 @@ public class Tubes_KPL_RojakSquad {
      */
     public static void main(String[] args){
         
-        FiturLogin login = new FiturLogin();
-        login.login();
-        
-        System.out.println(" ");
-        
-        UploadReferensi upload = new UploadReferensi();
-        upload.upload();
-        
-        System.out.println(" ");
-
+//        FiturLogin login = new FiturLogin();
+//        login.login();
+//        
+//        System.out.println(" ");
+//        
+//        UploadReferensi upload = new UploadReferensi();
+//        upload.upload();
+//        
+//        System.out.println(" ");
+//
         Searching searching = new Searching();
         
+
+        //System.out.println(System.getProperty("user.dir"));
         
 
           

@@ -52,7 +52,7 @@ public class Searching {
             Gson gson = new Gson();
             try {
                 //DIRECTORY FILE JSON SILAHKAN DIUBAH SESUAI DENGAN DIRECTORY MASING-MASING
-                Reader reader = Files.newBufferedReader(Paths.get("C:\\College\\Programming\\Konstruksi Perangkat Lunak\\Tugas Besar\\RojakSquad\\src\\fitur_searching\\buku.json"));                //DIRECTORY FILE JSON SILAHKAN DIUBAH SESUAI DENGAN DIRECTORY MASING-MASING
+                Reader reader = Files.newBufferedReader(Paths.get(System.getProperty("user.dir")+"\\src\\fitur_searching\\buku.json"));                //DIRECTORY FILE JSON SILAHKAN DIUBAH SESUAI DENGAN DIRECTORY MASING-MASING
                 bukuClass buku = gson.fromJson(reader,bukuClass.class);
                     
                 for(int i=0; i<buku.getBuku().size();i++){
