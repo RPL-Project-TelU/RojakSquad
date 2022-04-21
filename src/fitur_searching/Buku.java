@@ -12,6 +12,7 @@ package fitur_searching;
 public class Buku {
     private String judul;
     private int rating;
+    private String tipe;
     
     public String getJudul(){
         return this.judul;
@@ -24,5 +25,11 @@ public class Buku {
     }
     public void setRating(int rating){
         this.rating = rating;
+    }
+    public String getTipe(){
+        return this.tipe;
+    }
+    public void setTipe(){
+        this.tipe = tipe;
     }
 }

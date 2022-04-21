@@ -25,7 +25,9 @@ public class Tubes_KPL_RojakSquad {
 //        System.out.println(" ");
 //
         Searching searching = new Searching();
-        
+        System.out.println(searching.cariBuku("Algoritma").get(0)[0]);
+        System.out.println(searching.cariBuku("Algoritma").get(0)[1]);
+        System.out.println(searching.cariBuku("Algoritma").get(0)[2]);
 
         //System.out.println(System.getProperty("user.dir"));
         

@@ -2,27 +2,33 @@
     "buku" :[
         {
             "judul": "Pengenalan Algoritma 1",
-            "rating":5
+            "rating":5,
+            "tipe":"Buku"
         },
         {
             "judul": "Pengenalan Algoritma 2",
-            "rating":4
+            "rating":4,
+            "tipe":"Buku"
         },
         {
             "judul": "Rekayasa Perangkat Lunak",
-            "rating":5
+            "rating":5,
+            "tipe":"Jurnal"
         },
         {
             "judul": "Basis Data",
-            "rating":3
+            "rating":3,
+            "tipe":"Jurnal"
         },
         {
             "judul": "Jurnal Arsitektur dan Organisasi Komputer",
-            "rating":5
+            "rating":5,
+            "tipe":"Buku"
         },
         {
             "judul": "Rekayasa Industri",
-            "rating":5
+            "rating":5,
+            "tipe":"Jurnal"
         }
     ]
    

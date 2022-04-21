@@ -22,13 +22,15 @@ import java.util.logging.Logger;
  */
 public class Searching {
     private String hasil = "";
-    public <T> List<String> cariBuku(T judul){ 
+    public <T> List<String[]> cariBuku(T judul){ 
         // searching by string
         if(judul instanceof String){    
             // membuat array untuk mengecek huruf pada setiap data
             String[] splited = judul.toString().split("\\s");
             List<String> bukuSerupa = new ArrayList<String>();
-            
+            List<String[]> referensi = new ArrayList<String[]>();
+            String[] isi = {"","",""};
+                    
             Gson gson = new Gson();
             try {
                 Reader reader = Files.newBufferedReader(Paths.get(System.getProperty("user.dir")+"\\src\\fitur_searching\\buku.json"));
@@ -39,11 +41,15 @@ public class Searching {
                    for(int j = 0; j<splited.length;j++){
                       if(buku.getBuku().get(i).getJudul().contains(splited[j])&&judul!= buku.getBuku().get(i).getJudul()){
                       bukuSerupa.add(buku.getBuku().get(i).getJudul());
+                      isi[0] = buku.getBuku().get(i).getJudul();
+                      isi[1] = Integer.toString(buku.getBuku().get(i).getRating());
+                      isi[2] = buku.getBuku().get(i).getTipe();
+                      referensi.add(isi);
                       break;  
                         }
                     }
                 }
-                return bukuSerupa;  
+                return referensi;  
                 }
             catch(Exception ex){
                         System.out.println(ex.toString());
@@ -61,13 +67,15 @@ public class Searching {
                         bukuRating.add(buku.getBuku().get(i));
                     }
                 }
-                return bukuHasil;
+                return null;
             }catch(Exception ex){
                 System.out.println(ex.toString());
             }
         }
+        return null;    
+    }
+    
+    public List<String> getTipe(String judul){
         return null;
-        
-        
     }
 }
