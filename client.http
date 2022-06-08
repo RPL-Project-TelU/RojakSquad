@@ -1,0 +1,8 @@
+POST http://localhost:8080/api/listbuku
+Content-Type: application/json
+
+{
+    "judul":"Buku Sakti MTK",
+    "penulis":"Bobo",
+    "penerbit":"Tukang Terbit"
+}
