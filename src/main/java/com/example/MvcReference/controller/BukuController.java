@@ -1,6 +1,9 @@
 package com.example.MvcReference.controller;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -29,13 +32,13 @@ public class BukuController {
     }
 
     @RequestMapping(path = "/add")
-    @PostMapping
-    public void addNewBuku(
+    public void addNewBuku(HttpServletResponse response,
             @RequestParam(value = "judul", required = true) String judul,
             @RequestParam(value = "penulis", required = true) String penulis,
-            @RequestParam(value = "penerbit", required = true) String penerbit) {
+            @RequestParam(value = "penerbit", required = true) String penerbit) throws IOException {
         Buku buku = new Buku(judul, penulis, penerbit);
         bukuService.addNewBuku(buku);
+        response.sendRedirect("/");
     }
 
     // add buku
