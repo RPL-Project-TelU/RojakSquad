@@ -40,7 +40,12 @@ public class ViewController {
     @GetMapping("/")
     public String showBuku(Model model) {
         model.addAttribute("listBuku", bukuService.getBuku());
-        // model.addAttribute("searchBuku", bukuService.searchBuku("Komputer"));
+        return "search";
+    }
+
+    @GetMapping("/search")
+    public String search(@RequestParam(value = "judul", required = false) String judul, Model model) {
+        model.addAttribute("judul", bukuService.searchBuku(judul));
         return "search";
     }
 

@@ -28,12 +28,22 @@ public class BukuController {
         this.bukuService = bukuService;
     }
 
-    // add buku
-    @RequestMapping(path = "/")
+    @RequestMapping(path = "/add")
     @PostMapping
-    public void addNewBuku(@RequestBody Buku buku) {
+    public void addNewBuku(
+            @RequestParam(value = "judul", required = true) String judul,
+            @RequestParam(value = "penulis", required = true) String penulis,
+            @RequestParam(value = "penerbit", required = true) String penerbit) {
+        Buku buku = new Buku(judul, penulis, penerbit);
         bukuService.addNewBuku(buku);
     }
+
+    // add buku
+    // @RequestMapping(path = "/")
+    // @PostMapping
+    // public void addNewBuku(@RequestBody Buku buku) {
+    // bukuService.addNewBuku(buku);
+    // }
 
     // @PostMapping("/search")
     // public String searchBuku(@RequestParam("buku") String buku, Model model) {
@@ -47,4 +57,5 @@ public class BukuController {
     // query) {
     // return ResponseEntity.ok(bukuService.searchBuku(query));
     // }
+
 }
