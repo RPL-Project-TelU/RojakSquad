@@ -7,7 +7,26 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   </head>
   <body>
-    <table class="table">
+    <div class="container">
+      <!-- Search Bar -->
+      <div class="row" style="margin-top: 3%;">
+        <div class="col-1">
+          <label for="exampleDataList" class="fw-semibold fs-6">Cari Buku</label>
+        </div>
+        <div class="col-8">
+          <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+          <datalist id="datalistOptions">
+            <option value="San Francisco">
+              <option value="New York">
+              </datalist>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-primary">Cari</button>
+            </div>
+          </div>
+
+      <!-- Tabel -->
+      <table class="table">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -25,6 +44,7 @@
           </tr>
         </tbody>
       </table>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-  </body>
-</html>
+    </div>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </body>
+    </html>
