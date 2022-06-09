@@ -32,4 +32,9 @@ public class BukuService {
         bukuRepository.save(buku);
     }
 
+    public List<Buku> searchBuku(String query) {
+        List<Buku> buku = bukuRepository.searchBukuByJudul(query);
+        return buku;
+    }
+
 }

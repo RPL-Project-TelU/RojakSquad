@@ -4,14 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.MvcReference.entity.Buku;
 import com.example.MvcReference.service.BukuService;
 
 @Controller
+// controller untuk get method
 public class ViewController {
 
     private final BukuService bukuService;
@@ -34,9 +37,10 @@ public class ViewController {
         return "login";
     }
 
-    @GetMapping("/search")
-    public String search(Model model) {
+    @GetMapping("/")
+    public String showBuku(Model model) {
         model.addAttribute("listBuku", bukuService.getBuku());
+        // model.addAttribute("searchBuku", bukuService.searchBuku("Komputer"));
         return "search";
     }
 
