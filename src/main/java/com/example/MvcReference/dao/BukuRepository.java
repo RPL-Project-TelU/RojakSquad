@@ -15,8 +15,8 @@ public interface BukuRepository extends JpaRepository<Buku, Long> {
     @Query("SELECT b FROM Buku b WHERE UPPER(b.judul) LIKE UPPER(CONCAT('%',:query,'%'))")
     List<Buku> searchBukuByJudul(String query);
 
-    @Query(value = "SELECT * FROM buku b WHERE b.judul LIKE CONCAT('%',:query,'%')", nativeQuery = true)
-    List<Buku> searchBukuByJudulSql(String query);
+    @Query("SELECT b FROM Buku b WHERE UPPER(b.judul) LIKE UPPER(CONCAT('%',:query,'%'))")
+    Optional<Buku> searchBukuByJudulOpt(String query);
 
     void save(Optional<Buku> bukuOptional);
 
