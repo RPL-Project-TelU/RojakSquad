@@ -9,13 +9,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.MvcReference.entity.Buku;
 import com.example.MvcReference.service.BukuService;
 
 @Controller
-// controller untuk get method
+// controller
 public class ViewController {
 
     private final BukuService bukuService;
@@ -23,13 +24,6 @@ public class ViewController {
     @Autowired
     public ViewController(BukuService bukuService) {
         this.bukuService = bukuService;
-    }
-
-    @GetMapping("/index")
-    public String greeting(@RequestParam(name = "name", required = false, defaultValue = "World") String name,
-            Model model) {
-        model.addAttribute("name", name);
-        return "index";
     }
 
     @GetMapping("/login")
@@ -48,6 +42,14 @@ public class ViewController {
     public String search(@RequestParam(value = "judul", required = false) String judul, Model model) {
         model.addAttribute("judul", bukuService.searchBuku(judul));
         return "search";
+    }
+
+    @RequestMapping(path="/buku", method = RequestMethod.GET)
+    public String test(@RequestParam(value = "buku", required = false) String buku, Model model) {
+        model.addAttribute("buku", buku);
+        System.out.println(buku.getClass()); 
+        System.out.println(buku.toUpperCase()); 
+        return "buku";
     }
 
     @RequestMapping(path = "/add")
