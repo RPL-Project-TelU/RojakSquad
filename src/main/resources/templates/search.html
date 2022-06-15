@@ -40,13 +40,13 @@
         <tbody>
           <tr th:each="buku : ${listBuku}">
             <th scope="row" th:text="${buku.id}"></th>
-            <td ><a th:href="@{/buku(buku=${buku})}" style="text-decoration: none; color: black;" th:text="${buku.judul}"></a></td>
+            <td ><a th:href="@{/buku(judul=${buku.judul})}" style="text-decoration: none; color: black;" th:text="${buku.judul}"></a></td>
             <td th:text="${buku.penulis}"></td>
             <td th:text="${buku.penerbit}"></td>
           </tr>
           <tr th:each="buku : ${judul}">
             <th scope="row" th:text="${buku.id}"></th>
-            <td ><a th:href="@{/buku(buku=${buku})}" style="text-decoration: none; color: black;" th:text="${buku.judul}"></a></td>
+            <td ><a th:href="@{/buku(judul=${buku.judul})}" style="text-decoration: none; color: black;" th:text="${buku.judul}"></a></td>
             <td th:text="${buku.penulis}"></td>
             <td th:text="${buku.penerbit}"></td>
           </tr>

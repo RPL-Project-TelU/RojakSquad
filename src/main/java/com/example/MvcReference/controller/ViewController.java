@@ -45,10 +45,9 @@ public class ViewController {
     }
 
     @RequestMapping(path="/buku", method = RequestMethod.GET)
-    public String test(@RequestParam(value = "buku", required = false) String buku, Model model) {
-        model.addAttribute("buku", buku);
-        System.out.println(buku.getClass()); 
-        System.out.println(buku.toUpperCase()); 
+    public String test(@RequestParam(value = "judul", required = false) String judul, Model model) {
+        model.addAttribute("buku", bukuService.findBuku(judul));
+        System.out.println(bukuService.findBuku(judul).getClass()); 
         return "buku";
     }
 

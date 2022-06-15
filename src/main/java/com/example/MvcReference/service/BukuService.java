@@ -36,5 +36,9 @@ public class BukuService {
         List<Buku> buku = bukuRepository.searchBukuByJudul(query);
         return buku;
     }
+    public Buku findBuku(String query){
+        Buku buku = bukuRepository.findBuku(query);
+        return buku;
+    }
 
 }
