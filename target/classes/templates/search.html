@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Searching</title>
+    <title>Searching | E-Reference</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   </head>
   <body>
@@ -40,19 +40,19 @@
         <tbody>
           <tr th:each="buku : ${listBuku}">
             <th scope="row" th:text="${buku.id}"></th>
-            <td ><a href="@{/search}" style="text-decoration: none; color: black;" th:text="${buku.judul}"></a></td>
+            <td ><a th:href="@{/buku(judul=${buku.judul})}" style="text-decoration: none; color: black;" th:text="${buku.judul}"></a></td>
             <td th:text="${buku.penulis}"></td>
             <td th:text="${buku.penerbit}"></td>
           </tr>
           <tr th:each="buku : ${judul}">
             <th scope="row" th:text="${buku.id}"></th>
-            <td th:text="${buku.judul}"></td>
+            <td ><a th:href="@{/buku(judul=${buku.judul})}" style="text-decoration: none; color: black;" th:text="${buku.judul}"></a></td>
             <td th:text="${buku.penulis}"></td>
             <td th:text="${buku.penerbit}"></td>
           </tr>
         </tbody>
       </table>
-      
+
       <!-- Add Buku Card -->
       <div class="card text-center">
         <div class="card-header">

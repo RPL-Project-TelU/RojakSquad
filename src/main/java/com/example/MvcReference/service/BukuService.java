@@ -25,7 +25,11 @@ public class BukuService {
 
     public void addNewBuku(Buku buku) {
         Optional<Buku> bukuOptional =
+<<<<<<< HEAD
         bukuRepository.searchBukuByJudulOpt(buku.getJudul());
+=======
+        bukuRepository.searchBukuByJudulOp(buku.getJudul());
+>>>>>>> main
         if (bukuOptional.isPresent()) {
         throw new IllegalStateException("Judul Telah Tersedia");
         }
@@ -34,6 +38,10 @@ public class BukuService {
 
     public List<Buku> searchBuku(String query) {
         List<Buku> buku = bukuRepository.searchBukuByJudul(query);
+        return buku;
+    }
+    public Buku findBuku(String query){
+        Buku buku = bukuRepository.findBuku(query);
         return buku;
     }
 
