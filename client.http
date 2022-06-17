@@ -1,9 +1,0 @@
-POST http://localhost:8080/
-Content-Type: application/json
-
-
-{
-    "judul":"Buku Sakti MTK",
-    "penulis":"Bobo",
-    "penerbit":"Tukang Terbit"
-}
