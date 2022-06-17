@@ -1,5 +1,6 @@
-# Reference App
-App is Still in Progress.....
+# RojakSquad
+Kelompok RojakSquad <br>
+App Still In Progress.....
 
 <ul><h3> Requirement<h3>
 <li> JDK 17 </li>

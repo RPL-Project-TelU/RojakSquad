@@ -16,7 +16,7 @@ import com.example.MvcReference.entity.Buku;
 import com.example.MvcReference.service.BukuService;
 
 @Controller
-// controller
+// controller untuk get method
 public class ViewController {
 
     private final BukuService bukuService;
