@@ -20,7 +20,7 @@ import com.example.MvcReference.service.BukuService;
 public class ViewController {
 
     private final BukuService bukuService;
-    
+
     @Autowired
     public ViewController(BukuService bukuService) {
         this.bukuService = bukuService;

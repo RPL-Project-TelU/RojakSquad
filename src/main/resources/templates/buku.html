@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+<body>
+    
+<div class="container">
+
+    <!-- Judul Buku -->
+    <h1 class="my-4" th:text="${buku.judul}">
+    </h1>
+  
+    <!-- Deskripsi -->
+    <div class="row">
+  
+      <div class="col-md-8">
+        <img class="img-fluid" src="https://via.placeholder.com/750x500" alt="">
+      </div>
+  
+      <div class="col-md-4">
+        <h3 class="my-3">Deskripsi Buku</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
+        <div class="row">
+            <div class="col-sm">
+                <p>Penulis : </p>
+                <p>Penerbit : </p>
+            </div>
+            <div class="col-sm">
+                <p th:text="${buku.penulis}"></p>
+                <p th:text="${buku.penerbit}"></p>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-3">
+                <button type="button" class="btn btn-dark">Sitasi</button>
+            </div>
+            <div class="col-sm">
+                <button type="button" class="btn btn-danger">Hapus</button>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- Buku Lainya -->
+    <h3 class="my-4">Buku Lainya</h3>
+  
+    <div class="row">
+  
+      <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+              <img class="img-fluid" src="https://via.placeholder.com/500x300" alt="">
+            </a>
+      </div>
+  
+      <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+              <img class="img-fluid" src="https://via.placeholder.com/500x300" alt="">
+            </a>
+      </div>
+  
+      <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+              <img class="img-fluid" src="https://via.placeholder.com/500x300" alt="">
+            </a>
+      </div>
+  
+      <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+              <img class="img-fluid" src="https://via.placeholder.com/500x300" alt="">
+            </a>
+      </div>
+  
+    </div>
+    <!-- /.row -->
+  
+  </div>
+  <!-- /.container -->
+  
+</body>
+</html>
