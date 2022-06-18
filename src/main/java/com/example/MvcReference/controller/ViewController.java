@@ -11,18 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.example.MvcReference.entity.Buku;
-import com.example.MvcReference.service.BukuService;
+import com.example.MvcReference.service.BukuServiceImplement;
 
 @Controller
 // controller
 public class ViewController {
-
-    private final BukuService bukuService;
-
     @Autowired
-    public ViewController(BukuService bukuService) {
-        this.bukuService = bukuService;
-    }
+    private BukuServiceImplement bukuService;
 
     @GetMapping("/login")
     public String login(Model model) {
