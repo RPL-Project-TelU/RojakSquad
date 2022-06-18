@@ -42,6 +42,7 @@ public class BukuServiceTest {
         underTest.saveAll(buku);
 
         assertEquals(buku, underTest.searchBukuByJudul("test"));
+        assertNotEquals(buku, underTest.searchBukuByJudul("testfalse"));
     }
 
 
