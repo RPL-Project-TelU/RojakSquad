@@ -1,4 +1,4 @@
-package com.example.MvcReference.service;
+package com.example.MvcReference.service.implement;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.MvcReference.dao.BukuRepository;
 import com.example.MvcReference.entity.Buku;
+import com.example.MvcReference.service.BukuService;
 
 @Service
 public class BukuServiceImplement implements BukuService {
