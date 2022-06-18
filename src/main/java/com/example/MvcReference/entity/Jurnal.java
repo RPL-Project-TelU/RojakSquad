@@ -1,49 +1,91 @@
 package com.example.MvcReference.entity;
 
+/**
+ * Model class jurnal, berisi id, judul, penulis, dan nomer jurnal
+ */
 public class Jurnal {
     
     private Long id;
     private String judul;
     private String penulis;
-    private int no_jurnal;
+    private int noJurnal;
 
-    public Jurnal(Long id, String judul, String penulis, int no_jurnal){
+    /**
+     * membuat objek jurnal dengan isi id,judul,penulis dan nomer jurnal
+     * @param id berisi angka untuk primary key jurnal di Db
+     * @param judul berisi string judul jurnal
+     * @param penulis berisi string judul penulis
+     * @param noJurnal berisi angka nomer jurnal
+     */
+    public Jurnal(Long id, String judul, String penulis, int noJurnal){
         this.id = id;
         this.judul = judul;
         this.penulis = penulis;
-        this.no_jurnal = no_jurnal;
+        this.noJurnal = noJurnal;
     }
 
+    /**
+     * 
+     * @return primary key jurnal dalam bentuk Long
+     */
     public Long getId() {
         return this.id;
     }
 
+    /**
+     * menetapkan id primarykey jurnal
+     * @param id Long berisi primary key
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     * 
+     * @return string judul jurnal
+     */
     public String getJudul() {
         return this.judul;
     }
 
+    /**
+     * membuat judul jurnal
+     * @param judul
+     */
     public void setJudul(String judul) {
         this.judul = judul;
     }
 
+    /**
+     * 
+     * @return string penulis jurnal
+     */
     public String getPenulis() {
         return this.penulis;
     }
 
+    /**
+     * 
+     * @param penulis berisi string bebas nama penulis jurnal
+     */
     public void setPenulis(String penulis) {
         this.penulis = penulis;
     }
 
-    public int getNo_jurnal() {
-        return this.no_jurnal;
+    /**
+     * 
+     * @return nomer jurnal
+     */
+    public int getNoJurnal() {
+        return this.noJurnal;
     }
 
-    public void setNo_jurnal(int no_jurnal) {
-        this.no_jurnal = no_jurnal;
+    /**
+     * 
+     * @param noJurnal berisi angka sebagai nomer jurnal
+     */
+    public void setNoJurnal(int noJurnal) {
+        this.noJurnal = noJurnal;
     }
 
 }
