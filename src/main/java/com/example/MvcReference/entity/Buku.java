@@ -7,12 +7,13 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-@Entity
-@Table
+
 /**
  * menyimpan id buku, judul buku, penulis buku, penerbit buku
  * id buku digenerate automatis sebagai primary key.
  */
+@Entity
+@Table
 public class Buku {
     @Id
     @SequenceGenerator(name = "buku_sequence", sequenceName = "buku_sequence", allocationSize = 1)

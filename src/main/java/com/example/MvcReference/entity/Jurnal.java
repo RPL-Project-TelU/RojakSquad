@@ -1,10 +1,20 @@
 package com.example.MvcReference.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 /**
  * Model class jurnal, berisi id, judul, penulis, dan nomer jurnal
  */
+@Entity
+@Table
 public class Jurnal {
-    
+    @Id
+    @SequenceGenerator(name = "jurnal_sequence", sequenceName = "jurnal_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "jurnal_sequence")
     private Long id;
     private String judul;
     private String penulis;
