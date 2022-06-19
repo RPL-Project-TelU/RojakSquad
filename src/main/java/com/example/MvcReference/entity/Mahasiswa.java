@@ -1,7 +1,6 @@
 package com.example.MvcReference.entity;
 
 
-
 public class Mahasiswa extends UserImplement implements User {
 
     public Mahasiswa(String nama, String username, String pass, String status) {
