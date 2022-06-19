@@ -23,14 +23,12 @@ public class BukuServiceTest {
     @Test
     void testFindBuku() {
         Buku buku1 = new Buku("test", "dadang", "terbit");
-        Buku buku2 = new Buku("testing", "dadang", "terbit");
         underTest.save(buku1);
-        underTest.save(buku2);
 
-        //Test Positive
+        //Test Positive (query dengan judul yang tepat)
         assertEquals(buku1, underTest.findBuku("test"));
-        //Test Negative
-        assertNotEquals(buku2, underTest.findBuku("test"));
+        //Test Negative (query dengan judul yang salah)
+        assertNotEquals(buku1, underTest.findBuku("testFalse"));
 
     }
 
@@ -38,16 +36,14 @@ public class BukuServiceTest {
     void testSearchBuku() {
         List<Buku> buku = new ArrayList<Buku>();
         Buku buku1 = new Buku("test", "dadang", "terbit");
-        Buku buku2 = new Buku("testing", "dadang", "terbit");
         buku.add(buku1);
-        buku.add(buku2);
 
         underTest.saveAll(buku);
 
-        //Test Positive
+        //Test Positive (query dengan judul buku yang ada dalam list)
         assertEquals(buku, underTest.searchBukuByJudul("test"));
-        //Test Negative
-        assertNotEquals(buku, underTest.searchBukuByJudul("testfalse"));
+        //Test Negative (query dengan judul buku yang tidak ada dalam list)
+        assertNotEquals(buku, underTest.searchBukuByJudul("testFalse"));
     }
 
     @Test
@@ -67,6 +63,20 @@ public class BukuServiceTest {
         //Test Negative (jika buku tidak di save)
         assertNotEquals(kondisi, bukuOptional2.isPresent());
         
+    }
+
+    @Test
+    void testGetBuku() {
+        List<Buku> listBuku = new ArrayList<Buku>();
+
+        //Test Positive (default state dari list kosong)
+        assertEquals(listBuku, underTest.findAll());
+        
+        listBuku.add(new Buku("test", "test", "test"));
+
+        //Test Negative (state dari kedua list berbeda karena ada method dilakukan add)
+        assertNotEquals(listBuku, underTest.findAll());
+
     }
 
 
