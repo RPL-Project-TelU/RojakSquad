@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,9 @@ public class BukuServiceTest {
         underTest.save(buku1);
         underTest.save(buku2);
 
+        //Test Positive
         assertEquals(buku1, underTest.findBuku("test"));
+        //Test Negative
         assertNotEquals(buku2, underTest.findBuku("test"));
 
     }
@@ -41,10 +44,30 @@ public class BukuServiceTest {
 
         underTest.saveAll(buku);
 
+        //Test Positive
         assertEquals(buku, underTest.searchBukuByJudul("test"));
+        //Test Negative
         assertNotEquals(buku, underTest.searchBukuByJudul("testfalse"));
     }
 
+    @Test
+    void testAddNewBuku() {
+        boolean kondisi = true;
+
+        Buku buku = new Buku("test", "test", "test");
+        underTest.save(buku);
+        Optional<Buku> bukuOptional = underTest.searchBukuByJudulOp(buku.getJudul());
+
+        //Test Positive (buku di save/add, dan dicek apakah sudah dimasukkan repo)
+        assertEquals(kondisi, bukuOptional.isPresent());
+
+        Buku buku2 = new Buku("testFalse", "test", "test");
+        Optional<Buku> bukuOptional2 = underTest.searchBukuByJudulOp(buku2.getJudul());
+        
+        //Test Negative (jika buku tidak di save)
+        assertNotEquals(kondisi, bukuOptional2.isPresent());
+        
+    }
 
 
 }
