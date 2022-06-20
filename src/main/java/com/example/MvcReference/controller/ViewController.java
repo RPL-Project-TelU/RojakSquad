@@ -64,5 +64,4 @@ public class ViewController {
         bukuService.deleteBukuByJudul(judul);
         response.sendRedirect("/");
     }
-
 }

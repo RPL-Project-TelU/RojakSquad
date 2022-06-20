@@ -36,8 +36,8 @@ public class Buku {
         this.tglTerbit = tglTerbit;
     }
 
-    
-   
+
+  
     /**
      * 
      * @param judul berisikan String bebas
@@ -132,7 +132,7 @@ public class Buku {
     public void setPenerbit(String penerbit) {
         this.penerbit = penerbit;
     }
-    
+
     public String getDeskripsi() {
         return deskripsi;
     }
