@@ -25,15 +25,17 @@
   
       <div class="col-md-4">
         <h3 class="my-3">Deskripsi Buku</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
+        <p th:text="${buku.deskripsi}"></p>
         <div class="row">
             <div class="col-sm">
                 <p>Penulis : </p>
                 <p>Penerbit : </p>
+                <p>Tanggal Terbit : </p>
             </div>
             <div class="col-sm">
                 <p th:text="${buku.penulis}"></p>
                 <p th:text="${buku.penerbit}"></p>
+                <p th:text="${buku.tglTerbit}"></p>
             </div>
         </div>
         <div class="row mt-5">
@@ -107,14 +109,14 @@
         <h5 class="modal-title" id="exampleModalLabel">Silahkan Copy Text Dibawah</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body" id="textSitasi" th:text="|${buku.penulis}. (2020). ${buku.judul}. ${buku.penerbit}|">
+      <div class="modal-body" id="textSitasi" th:text="|${buku.penulis}. (${#strings.substring(buku.tglTerbit,0,4)}). ${buku.judul}. ${buku.penerbit}|">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
-</div>
+</div>  
   <!-- /.container -->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
