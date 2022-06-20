@@ -1,30 +1,25 @@
 package com.example.MvcReference.controller;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.example.MvcReference.entity.Buku;
-import com.example.MvcReference.service.BukuService;
+import com.example.MvcReference.service.implement.BukuServiceImplement;
 
 @Controller
 // controller
 public class ViewController {
-
-    private final BukuService bukuService;
-
     @Autowired
-    public ViewController(BukuService bukuService) {
-        this.bukuService = bukuService;
-    }
+    private BukuServiceImplement bukuService;
 
     @GetMapping("/login")
     public String login(Model model) {
@@ -55,10 +50,18 @@ public class ViewController {
     public void addNewBuku(HttpServletResponse response,
             @RequestParam(value = "judul", required = true) String judul,
             @RequestParam(value = "penulis", required = true) String penulis,
-            @RequestParam(value = "penerbit", required = true) String penerbit) throws IOException {
-        Buku buku = new Buku(judul, penulis, penerbit);
+            @RequestParam(value = "penerbit", required = true) String penerbit,
+            @RequestParam(value = "deskripsi", required = true)String deskripsi,
+            @RequestParam(value = "tglTerbit", required = true)String tglTerbit) throws IOException {
+        Buku buku = new Buku(judul, penulis, penerbit, deskripsi, tglTerbit);
         bukuService.addNewBuku(buku);
         response.sendRedirect("/");
     }
 
+    @RequestMapping(path="/delete")
+    public void deleteBuku(HttpServletResponse response,
+            @RequestParam(value = "buttonDelete",required = true)String judul) throws IOException{
+        bukuService.deleteBukuByJudul(judul);
+        response.sendRedirect("/");
+    }
 }
