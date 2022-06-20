@@ -9,7 +9,6 @@ public interface BukuService {
     public void addNewBuku(Buku buku);
     public List<Buku> searchBuku(String query);
     public Buku findBuku(String query);
-
-    
+    public void deleteBukuByJudul(String query);
 
 }

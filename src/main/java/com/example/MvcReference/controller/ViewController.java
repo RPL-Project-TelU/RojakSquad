@@ -19,7 +19,6 @@ public class ViewController {
     @Autowired
     private BukuServiceImplement bukuService;
 
-
     @GetMapping("/login")
     public String login(Model model) {
         model.addAttribute("message", "login from controller");
@@ -52,6 +51,13 @@ public class ViewController {
             @RequestParam(value = "penerbit", required = true) String penerbit) throws IOException {
         Buku buku = new Buku(judul, penulis, penerbit);
         bukuService.addNewBuku(buku);
+        response.sendRedirect("/");
+    }
+
+    @RequestMapping(path="/delete")
+    public void deleteBuku(HttpServletResponse response,
+            @RequestParam(value = "buttonDelete",required = true)String judul) throws IOException{
+        bukuService.deleteBukuByJudul(judul);
         response.sendRedirect("/");
     }
 

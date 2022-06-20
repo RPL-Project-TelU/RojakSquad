@@ -8,6 +8,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 
+
+
 /**
  * menyimpan id buku, judul buku, penulis buku, penerbit buku
  * id buku digenerate automatis sebagai primary key.

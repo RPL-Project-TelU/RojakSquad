@@ -41,7 +41,9 @@
                 <button type="button" class="btn btn-dark">Sitasi</button>
             </div>
             <div class="col-sm">
-                <button type="button" class="btn btn-danger">Hapus</button>
+              <form th:action="@{/delete}">
+                <button type="submit" th:name="buttonDelete" th:value="${buku.judul}" class="btn btn-danger">Hapus</button>
+              </form>
             </div>
         </div>
       </div>
