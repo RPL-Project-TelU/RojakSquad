@@ -1,6 +1,6 @@
 package com.example.MvcReference.entity;
 
-public class Author extends UserImplement implements User {
+public class Author extends UserImplement {
     public Author(String nama, String username, String pass, String status) {
         super(nama, username, pass, status);
     }

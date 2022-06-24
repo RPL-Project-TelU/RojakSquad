@@ -1,9 +1,4 @@
-POST http://localhost:8080/
-Content-Type: application/json
+POST http://localhost:8080/delete
+Content-Type: text/plain
 
-
-{
-    "judul":"Buku Sakti MTK",
-    "penulis":"Bobo",
-    "penerbit":"Tukang Terbit"
-}
+?judul="algoritma"

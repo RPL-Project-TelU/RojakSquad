@@ -36,4 +36,8 @@ public class BukuServiceImplement implements BukuService {
         return buku;
     }
 
+    public void deleteBukuByJudul(String query){
+        bukuRepository.delete(findBuku(query));
+    }
+
 }
