@@ -128,15 +128,12 @@ public class UserImplement implements User{
      * @param user string nama dari user
      */
     @Override
-    public String Login(String user) {
-        if (this.getStatus() == "Mahasiswa"){
-            return "Halo "+user+" kamu login sebagai mahasiswa";
-    
-        }else if(this.getStatus() == "Author"){
-            return "Halo "+user+" kamu login sebagai author";
-        }
+    public String Login() {
         
-        return "kamu bukan mahasiswa ataupun author";
+        if (this.getStatus() == "Author"){
+            return "Author";
+        }
+        return "Mahasiswa";
     }
     
 
