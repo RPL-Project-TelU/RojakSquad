@@ -1,25 +1,28 @@
 package com.example.MvcReference.controller;
 
 import java.io.IOException;
-import java.util.Date;
 
 import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.example.MvcReference.entity.Buku;
-import com.example.MvcReference.service.implement.BukuServiceImplement;
+import com.example.MvcReference.service.BukuServiceImpl;
+import com.example.MvcReference.util.FileUploadUtil;
 
 @Controller
 // controller
 public class ViewController {
     @Autowired
-    private BukuServiceImplement bukuService;
+    private BukuServiceImpl bukuService;
 
     @GetMapping("/login")
     public String login(Model model) {
@@ -52,10 +55,15 @@ public class ViewController {
             @RequestParam(value = "penulis", required = true) String penulis,
             @RequestParam(value = "penerbit", required = true) String penerbit,
             @RequestParam(value = "deskripsi", required = true)String deskripsi,
-            @RequestParam(value = "tglTerbit", required = true)String tglTerbit) throws IOException {
-        Buku buku = new Buku(judul, penulis, penerbit, deskripsi, tglTerbit);
+            @RequestParam(value = "tglTerbit", required = true)String tglTerbit,
+            @RequestParam(value = "file", required = true) MultipartFile file) throws IOException {
+        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+        Buku buku = new Buku(judul, penulis, penerbit, deskripsi, tglTerbit, fileName);
+        String uploadDir = "user-file/"+ buku.getPenulis()+"/"+buku.getJudul();
+        FileUploadUtil.saveFile(uploadDir, fileName, file);
         bukuService.addNewBuku(buku);
         response.sendRedirect("/");
+        
     }
 
     @RequestMapping(path="/delete")

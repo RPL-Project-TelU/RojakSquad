@@ -4,8 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
 
 
 
@@ -26,6 +28,8 @@ public class Buku {
     private String penerbit;
     private String deskripsi;
     private String tglTerbit;
+    private String file;
+
 
 
     public Buku(String judul, String penulis, String penerbit, String deskripsi, String tglTerbit) {
@@ -35,6 +39,16 @@ public class Buku {
         this.deskripsi = deskripsi;
         this.tglTerbit = tglTerbit;
     }
+
+    public Buku(String judul, String penulis, String penerbit, String deskripsi, String tglTerbit, String file) {
+        this.judul = judul;
+        this.penulis = penulis;
+        this.penerbit = penerbit;
+        this.deskripsi = deskripsi;
+        this.tglTerbit = tglTerbit;
+        this.file = file;
+    }
+
 
 
   
@@ -143,5 +157,12 @@ public class Buku {
     public String getTglTerbit() {
         return tglTerbit;
     }
+    public String getFile() {
+        return file;
+    }
+    public void setFile(String file) {
+        this.file = file;
+    }
+
 
 }   
