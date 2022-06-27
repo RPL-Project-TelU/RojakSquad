@@ -1,5 +1,6 @@
 package com.example.MvcReference.library;
 
+
 public class libraryReference {
     public String findBuku(String table, String value){
         return "SELECT b FROM "+table+" b WHERE b."+value+" = ?1";
