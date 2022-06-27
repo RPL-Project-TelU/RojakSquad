@@ -13,22 +13,44 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.MvcReference.entity.Buku;
 import com.example.MvcReference.service.BukuServiceImpl;
 import com.example.MvcReference.util.FileUploadUtil;
+import com.example.MvcReference.util.DetectCharacters;
 
-@Controller
 // controller
+@Controller
 public class ViewController {
     @Autowired
     private BukuServiceImpl bukuService;
 
     @GetMapping("/login")
-    public String login(Model model) {
-        model.addAttribute("message", "login from controller");
+    public String login(RedirectAttributes redirAttrs,
+                        @RequestParam(value = "username",required = true)String username,
+                        @RequestParam(value = "password", required = true)String password) throws IOException {
+        DetectCharacters check = new DetectCharacters();
+        boolean checkUsername = check.isSpecialCharacters(username);                  
+        boolean checkPassword = check.isSpecialCharacters(password);
+        if(checkUsername == true || checkPassword == true){  
+            redirAttrs.addFlashAttribute("error", "Username or Password must not contains special characters.");
+            return "redirect:/loginPage/";   
+        }else{
+            return "redirect:/";
+        }
+    }
+
+    @GetMapping("/landing")
+    public String landing(){
+        return "landing";
+    }
+
+    @GetMapping("/loginPage")
+    public String loginPage(){
         return "login";
     }
+
 
     @GetMapping("/")
     public String showBuku(Model model) {

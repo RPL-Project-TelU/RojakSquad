@@ -30,34 +30,23 @@
               backdrop-filter: blur(30px);
               ">
             <div class="card-body p-5 shadow-5 text-center">
-              <h2 class="fw-bold mb-5">Sign up now</h2>
-              <form>
-                <!-- 2 column grid layout with text inputs for the first and last names -->
-                <div class="row">
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="form3Example1" class="form-control" />
-                      <label class="form-label" for="form3Example1">First name</label>
-                    </div>
+              <h2 class="fw-bold mb-5">Log In</h2>
+              <form th:action="@{/login}">
+                <div class="alert alert-danger" role="alert" th:text="${error}" th:if="${error}"></div>
+                <!-- Username input -->
+                <div class="row mb-3">
+                  <label for="Penulis" class="col-sm-2 col-form-label">Username</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" th:name="username" placeholder="Username">
                   </div>
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="form3Example2" class="form-control" />
-                      <label class="form-label" for="form3Example2">Last name</label>
-                    </div>
-                  </div>
-                </div>
-  
-                <!-- Email input -->
-                <div class="form-outline mb-4">
-                  <input type="email" id="form3Example3" class="form-control" />
-                  <label class="form-label" for="form3Example3">Email address</label>
                 </div>
   
                 <!-- Password input -->
-                <div class="form-outline mb-4">
-                  <input type="password" id="form3Example4" class="form-control" />
-                  <label class="form-label" for="form3Example4">Password</label>
+                <div class="row mb-3">
+                  <label for="Penulis" class="col-sm-2 col-form-label">Password</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" th:name="password" placeholder="Password">
+                  </div>
                 </div>
   
                 <!-- Checkbox -->
@@ -70,7 +59,7 @@
   
                 <!-- Submit button -->
                 <button type="submit" class="btn btn-primary btn-block mb-4">
-                  Sign up
+                  Login
                 </button>
   
                 <!-- Register buttons -->
