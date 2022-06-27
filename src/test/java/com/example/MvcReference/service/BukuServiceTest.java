@@ -76,7 +76,7 @@ public class BukuServiceTest {
 
         //Test Negative (state dari kedua list berbeda karena ada method dilakukan add)
         assertNotEquals(listBuku, underTest.findAll());
-
+    }
     
 
     @Test
