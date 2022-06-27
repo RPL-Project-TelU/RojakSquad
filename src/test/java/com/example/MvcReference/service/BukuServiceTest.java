@@ -76,8 +76,8 @@ public class BukuServiceTest {
 
         //Test Negative (state dari kedua list berbeda karena ada method dilakukan add)
         assertNotEquals(listBuku, underTest.findAll());
-
     }
+    
 
     @Test
     void testDeleteBukuByJudul(){
@@ -97,4 +97,5 @@ public class BukuServiceTest {
         // Test jika buku tidak di delete
         assertNotEquals(kondisi, bukuOptional2.isPresent());
     }
+
 }
