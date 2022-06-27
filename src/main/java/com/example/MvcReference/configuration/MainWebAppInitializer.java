@@ -26,7 +26,6 @@ public class MainWebAppInitializer implements WebApplicationInitializer {
           MAX_UPLOAD_SIZE, MAX_UPLOAD_SIZE * 2, MAX_UPLOAD_SIZE / 2);
         
         appServlet.setMultipartConfig(multipartConfigElement);
-
        
     }
 }

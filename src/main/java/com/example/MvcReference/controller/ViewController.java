@@ -17,8 +17,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.MvcReference.entity.Buku;
 import com.example.MvcReference.service.BukuServiceImpl;
-import com.example.MvcReference.util.FileUploadUtil;
 import com.example.MvcReference.util.DetectCharacters;
+import com.example.MvcReference.util.FileUploadUtil;
 
 // controller
 @Controller
@@ -65,8 +65,12 @@ public class ViewController {
     }
 
     @RequestMapping(path="/buku", method = RequestMethod.GET)
-    public String test(@RequestParam(value = "judul", required = false) String judul, Model model) {
-        model.addAttribute("buku", bukuService.findBuku(judul));
+    public String test(@RequestParam(value = "judul", required = false) String judul, Model model) throws IOException {
+        Buku buku = bukuService.findBuku(judul);
+       
+        String fileLocation = buku.getPenulis()+"/"+buku.getJudul()+"/"+buku.getFile();
+        model.addAttribute("buku", buku);
+        model.addAttribute("location", fileLocation);
         System.out.println(bukuService.findBuku(judul).getClass()); 
         return "buku";
     }
@@ -81,7 +85,7 @@ public class ViewController {
             @RequestParam(value = "file", required = true) MultipartFile file) throws IOException {
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
         Buku buku = new Buku(judul, penulis, penerbit, deskripsi, tglTerbit, fileName);
-        String uploadDir = "user-file/"+ buku.getPenulis()+"/"+buku.getJudul();
+        String uploadDir = "src/main/resources/static/pdf/"+ buku.getPenulis()+"/"+buku.getJudul();
         FileUploadUtil.saveFile(uploadDir, fileName, file);
         bukuService.addNewBuku(buku);
         response.sendRedirect("/");
