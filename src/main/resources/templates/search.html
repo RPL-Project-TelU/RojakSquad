@@ -59,7 +59,7 @@
           Tambahkan Buku Referensi Milikmu!
         </div>
           <div class="card-body">
-            <form th:action="@{/add}">
+            <form th:action="@{/add}" enctype="multipart/form-data" method="post">
               
               <div class="row mb-3">
                 <label for="judul" class="col-sm-2 col-form-label">Judul Buku</label>
