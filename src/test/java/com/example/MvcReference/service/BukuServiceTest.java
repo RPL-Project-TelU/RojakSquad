@@ -78,4 +78,23 @@ public class BukuServiceTest {
         assertNotEquals(listBuku, underTest.findAll());
 
     }
+
+    @Test
+    void testDeleteBukuByJudul(){
+        boolean kondisi = false;
+
+        Buku buku = new Buku("test", "test", "test");
+        underTest.save(buku);
+
+        underTest.delete(buku);
+        Optional<Buku> bukuOptional = underTest.searchBukuByJudulOp(buku.getJudul());
+        //Test Positive (buku di save/add, dan dicek apakah buku ada di dalam repo
+        assertEquals(kondisi, bukuOptional.isPresent());
+
+        Buku buku2 = new Buku("test", "test", "test");
+        underTest.save(buku2);
+        Optional<Buku> bukuOptional2 = underTest.searchBukuByJudulOp(buku2.getJudul());
+        // Test jika buku tidak di delete
+        assertNotEquals(kondisi, bukuOptional2.isPresent());
+    }
 }

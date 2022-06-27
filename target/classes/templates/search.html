@@ -59,7 +59,7 @@
           Tambahkan Buku Referensi Milikmu!
         </div>
           <div class="card-body">
-            <form th:action="@{/add}">
+            <form th:action="@{/add}" enctype="multipart/form-data" method="post">
               
               <div class="row mb-3">
                 <label for="judul" class="col-sm-2 col-form-label">Judul Buku</label>
@@ -95,7 +95,15 @@
                 <input type="date" class="form-control" th:name="tglTerbit" placeholder="Buku ini merupakan ...">
               </div>
             </div>
-               
+
+            <div class="row mb-3">
+              <label for="deskripsi" class="col-sm-2 col-form-label">File Referensi</label>
+              <div class="col-sm-10">
+                <input type="file" class="form-control" th:name="file">
+              </div>
+            </div>
+            <!-- <h2 th:text="${file.originalFilename}"></h2> -->
+              
             <div class="col">
               <button type="submit" class="btn btn-dark">Tambah Referensi!</button>
             </div>
