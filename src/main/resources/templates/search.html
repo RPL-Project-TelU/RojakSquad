@@ -26,7 +26,6 @@
               </div>
             </div>
           </form>
-
       <!-- Tabel -->
       <table class="table">
         <thead>
@@ -40,21 +39,20 @@
         <tbody>
           <tr th:each="buku : ${listBuku}">
             <th scope="row" th:text="${buku.id}"></th>
-            <td ><a th:href="@{/buku(judul=${buku.judul})}" style="text-decoration: none; color: black;" th:text="${buku.judul}"></a></td>
+            <td ><a th:href="@{/buku(judul=${buku.judul}, status=${user.status})}" style="text-decoration: none; color: black;" th:text="${buku.judul}"></a></td>
             <td th:text="${buku.penulis}"></td>
             <td th:text="${buku.penerbit}"></td>
           </tr>
           <tr th:each="buku : ${judul}">
             <th scope="row" th:text="${buku.id}"></th>
-            <td ><a th:href="@{/buku(judul=${buku.judul})}" style="text-decoration: none; color: black;" th:text="${buku.judul}"></a></td>
+            <td ><a th:href="@{/buku(judul=${buku.judul}, status=${user.status})}" style="text-decoration: none; color: black;" th:text="${buku.judul}"></a></td>
             <td th:text="${buku.penulis}"></td>
             <td th:text="${buku.penerbit}"></td>
           </tr>
         </tbody>
       </table>
-
       <!-- Add Buku Card -->
-      <div class="card text-center">
+      <div th:if="'author' == ${user.status}" class="card text-center">
         <div class="card-header">
           Tambahkan Buku Referensi Milikmu!
         </div>

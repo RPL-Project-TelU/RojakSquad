@@ -13,11 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.MvcReference.entity.Buku;
 import com.example.MvcReference.service.BukuServiceImpl;
-import com.example.MvcReference.util.DetectCharacters;
 import com.example.MvcReference.util.FileUploadUtil;
 
 // controller
@@ -26,22 +24,7 @@ public class ViewController {
     @Autowired
     private BukuServiceImpl bukuService;
 
-    @GetMapping("/login")
-    public String login(RedirectAttributes redirAttrs,
-                        @RequestParam(value = "username",required = true)String username,
-                        @RequestParam(value = "password", required = true)String password) throws IOException {
-        DetectCharacters check = new DetectCharacters();
-        boolean checkUsername = check.isSpecialCharacters(username);                  
-        boolean checkPassword = check.isSpecialCharacters(password);
-        if(checkUsername == true || checkPassword == true){  
-            redirAttrs.addFlashAttribute("error", "Username or Password must not contains special characters.");
-            return "redirect:/loginPage/";   
-        }else{
-            return "redirect:/";
-        }
-    }
-
-    @GetMapping("/landing")
+    @GetMapping("/")
     public String landing(){
         return "landing";
     }
@@ -51,9 +34,8 @@ public class ViewController {
         return "login";
     }
 
-
-    @GetMapping("/")
-    public String showBuku(Model model) {
+    @GetMapping("/searchPage")
+    public String showBukuMhs(Model model) {
         model.addAttribute("listBuku", bukuService.getBuku());
         return "search";
     }
@@ -65,13 +47,13 @@ public class ViewController {
     }
 
     @RequestMapping(path="/buku", method = RequestMethod.GET)
-    public String test(@RequestParam(value = "judul", required = false) String judul, Model model) throws IOException {
+    public String test(@RequestParam(value = "judul", required = false) String judul,
+                       @RequestParam(value = "status",required = false) String status, Model model) throws IOException {
         Buku buku = bukuService.findBuku(judul);
-       
         String fileLocation = buku.getPenulis()+"/"+buku.getJudul()+"/"+buku.getFile();
         model.addAttribute("buku", buku);
         model.addAttribute("location", fileLocation);
-        System.out.println(bukuService.findBuku(judul).getClass()); 
+        model.addAttribute("status",status);
         return "buku";
     }
 

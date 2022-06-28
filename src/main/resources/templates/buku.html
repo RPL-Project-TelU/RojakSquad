@@ -44,7 +44,7 @@
             <div class="col-md-3">
                 <button type="button" id="btnSitasi"class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalSitasi">Sitasi</button>
             </div>
-            <div class="col-sm">
+            <div th:if="'author' == ${status}" class="col-sm">
                 <button type="button" data-bs-toggle="modal" data-bs-target="#modalDelete" id="btnHapus" class="btn btn-danger">Hapus</button>
             </div>
         </div>

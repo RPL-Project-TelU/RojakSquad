@@ -11,7 +11,9 @@ import java.util.List;
 import org.springframework.boot.CommandLineRunner;
 
 import com.example.MvcReference.dao.BukuRepository;
+import com.example.MvcReference.dao.UserRepository;
 import com.example.MvcReference.entity.Buku;
+import com.example.MvcReference.entity.Users;
 
 @Configuration
 @Component
@@ -26,7 +28,7 @@ public class Config {
     }
 
     @Bean
-    CommandLineRunner commandLineRunner(BukuRepository bukuRepository) {
+    CommandLineRunner insertBuku(BukuRepository bukuRepository) {
         return args -> {
             Buku buku1 = new Buku("Pemrograman Algoritma", "Dadang", "Sinar Mars","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultrices dui quis nisi rhoncus aliquam. Aenean suscipit nunc sit amet tellus convallis convallis. Morbi at luctus urna.","2021-02-19");
             Buku buku2 = new Buku("Pemrograman Algoritma II", "Dadang", "Sinar Mars","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultrices dui quis nisi rhoncus aliquam. Aenean suscipit nunc sit amet tellus convallis convallis. Morbi at luctus urna.","2021-02-19");
@@ -34,6 +36,15 @@ public class Config {
             Buku buku4 = new Buku("Software engineering a practitioners approach", "Roger S. Pressman", "McGraw-Hill","Designed for the introductory programming course or the software engineering projects course offered in departments of computer science.","2021-02-19","Software_Engineering_-_Pressman.pdf");
 
             bukuRepository.saveAll(List.of(buku1, buku2, buku3, buku4));
+        };
+    }
+    @Bean
+    CommandLineRunner insertUser(UserRepository userRepository) {
+        return args -> {
+            Users mahasiswa = new Users("bambang", "mahasiswa", "123", "mahasiswa");
+            Users author = new Users("budi", "author", "123", "author");
+
+            userRepository.saveAll(List.of(mahasiswa, author));
         };
     }
 
