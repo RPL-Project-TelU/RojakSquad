@@ -10,7 +10,7 @@ public class DetectCharacters {
             System.out.println("Incorrect format of string");
             return true;
         }
-        Pattern p = Pattern.compile("[^A-Za-z0-9]");
+        Pattern p = Pattern.compile("[^A-Za-z0-9 ]");
         Matcher m = p.matcher(s);
        // boolean b = m.matches();
         boolean b = m.find();
