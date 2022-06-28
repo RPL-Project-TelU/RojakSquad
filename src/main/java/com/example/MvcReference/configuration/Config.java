@@ -31,7 +31,7 @@ public class Config {
             Buku buku1 = new Buku("Pemrograman Algoritma", "Dadang", "Sinar Mars","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultrices dui quis nisi rhoncus aliquam. Aenean suscipit nunc sit amet tellus convallis convallis. Morbi at luctus urna.","2021-02-19");
             Buku buku2 = new Buku("Pemrograman Algoritma II", "Dadang", "Sinar Mars","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultrices dui quis nisi rhoncus aliquam. Aenean suscipit nunc sit amet tellus convallis convallis. Morbi at luctus urna.","2021-02-19");
             Buku buku3 = new Buku("Arsitektur Komputer", "Udin", "Sinar Mars","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultrices dui quis nisi rhoncus aliquam. Aenean suscipit nunc sit amet tellus convallis convallis. Morbi at luctus urna.","2021-02-19");
-            Buku buku4 = new Buku("Pemrograman Dasar", "Udin", "Sinar Mars","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultrices dui quis nisi rhoncus aliquam. Aenean suscipit nunc sit amet tellus convallis convallis. Morbi at luctus urna.","2021-02-19");
+            Buku buku4 = new Buku("Software engineering a practitioners approach", "Roger S. Pressman", "McGraw-Hill","Designed for the introductory programming course or the software engineering projects course offered in departments of computer science.","2021-02-19","Software_Engineering_-_Pressman.pdf");
 
             bukuRepository.saveAll(List.of(buku1, buku2, buku3, buku4));
         };
@@ -41,4 +41,5 @@ public class Config {
     public StandardServletMultipartResolver multipartResolverServlet() {
         return new StandardServletMultipartResolver();
     }
+    
 }
