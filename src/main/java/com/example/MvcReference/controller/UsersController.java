@@ -30,16 +30,15 @@ public class UsersController {
             return "redirect:/loginPage/";   
         }
         Users user = userService.findUser(username);
-        if(user!= null){
-            
-            if(user.getStatus().equalsIgnoreCase("author")){
-                return "redirect:/searchAu";
-            }else{
-                return "redirect:/searchMhs";
-            }
+        redirAttrs.addFlashAttribute("user", user);
+          
+        if(user.getUsername().equalsIgnoreCase(username)&&user.getPassword().equalsIgnoreCase(password)){
+            return "redirect:/searchPage";
+        }else{
+            redirAttrs.addFlashAttribute("error", "Wrong Username or Password");
+            return "redirect:/loginPage/"; 
         }
-
-        return "redirect:/loginPage/";
+        
     }
 }
 

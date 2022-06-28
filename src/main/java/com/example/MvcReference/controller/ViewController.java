@@ -34,32 +34,26 @@ public class ViewController {
         return "login";
     }
 
-    @GetMapping("/searchMhs")
+    @GetMapping("/searchPage")
     public String showBukuMhs(Model model) {
         model.addAttribute("listBuku", bukuService.getBuku());
-        return "searchMhs";
-    }
-
-    @GetMapping("/searchAu")
-    public String showBukuAu(Model model) {
-        model.addAttribute("listBuku", bukuService.getBuku());
-        return "searchAu";
+        return "search";
     }
 
     @GetMapping("/search")
     public String search(@RequestParam(value = "judul", required = false) String judul, Model model) {
         model.addAttribute("judul", bukuService.searchBuku(judul));
-        return "searchAu";
+        return "search";
     }
 
     @RequestMapping(path="/buku", method = RequestMethod.GET)
-    public String test(@RequestParam(value = "judul", required = false) String judul, Model model) throws IOException {
+    public String test(@RequestParam(value = "judul", required = false) String judul,
+                       @RequestParam(value = "status",required = false) String status, Model model) throws IOException {
         Buku buku = bukuService.findBuku(judul);
-       
         String fileLocation = buku.getPenulis()+"/"+buku.getJudul()+"/"+buku.getFile();
         model.addAttribute("buku", buku);
         model.addAttribute("location", fileLocation);
-        System.out.println(bukuService.findBuku(judul).getClass()); 
+        model.addAttribute("status",status);
         return "buku";
     }
 
