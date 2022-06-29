@@ -7,6 +7,10 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+/**
+ * Clas yang menyimpan user berupa mahasiswa atau author di dalam atribut status,
+ * id di generate seacara automatis untuk menjadi PK didalam table database.
+ */
 @Entity
 @Table
 public class Users {
@@ -19,9 +23,20 @@ public class Users {
     private String password;
     private String status;
     
+    /**
+     * Constructor default
+     */
     public Users() {
     }
 
+    /**
+     * Constructor dengan paramter Id
+     * @param id
+     * @param nama
+     * @param username
+     * @param password
+     * @param status
+     */
     public Users(Long id, String nama, String username, String password, String status) {
         this.nama = nama;
         this.username = username;
@@ -30,6 +45,13 @@ public class Users {
         this.id = id;
     }
 
+    /**
+     * Constructor tanpa parameter Id
+     * @param nama
+     * @param username
+     * @param password
+     * @param status
+     */
     public Users(String nama, String username, String password, String status) {
         this.nama = nama;
         this.username = username;
