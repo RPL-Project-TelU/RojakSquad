@@ -18,20 +18,22 @@ public class libraryReference {
     }
     
     /**
-     * 
-     * @param table
-     * @param value
-     * @return
+     * Sebuah query untuk mencari buku/user berdasarkan parameter table
+     * dan mencari dengan value yang di inginkan
+     * @param table berupa nama table di dalam database Buku/User/Jurnal/...
+     * @param value berupa nama kolom yang ada didalam table tersebut
+     * @return String query untuk mencari sesuai dengan value kolomnya bisa nama/judu/rating dll
      */
     public String searchByValue(String table, String value){
         return "SELECT b FROM "+ table+" b WHERE UPPER(b."+value+") LIKE UPPER(CONCAT('%',:query,'%'))";
     }
 
     /**
-     * 
-     * @param table
-     * @param value
-     * @return
+     * Sebuah query untuk mencari buku/user berdasarkan parameter table
+     * dan mencari dengan value yang di inginkan
+     * @param table berupa nama table di dalam database Buku/User/Jurnal/...
+     * @param value berupa nama kolom yang ada didalam table tersebut
+     * @return String query untuk mencari sesuai dengan value kolomnya bisa nama/judu/rating dll
      */
     public String searchByValue2(String table, String value){
         return "SELECT b FROM "+table+" b WHERE UPPER(b."+value+") LIKE UPPER(CONCAT('%',:query,'%'))";

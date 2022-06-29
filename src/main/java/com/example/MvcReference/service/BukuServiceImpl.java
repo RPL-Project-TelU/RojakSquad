@@ -38,16 +38,31 @@ public class BukuServiceImpl implements BukuService {
         bukuRepository.save(buku);
     }
 
-    
+    /**
+     * Mencari buku berdasarkan judul mengembalikan list buku yang mempunyai
+     * judul serupa
+     * @param query berisi judul buku
+     * @return List Buku dengan kesamaan judul 
+     */
     public List<Buku> searchBuku(String query) {
         List<Buku> buku = bukuRepository.searchBukuByJudul(query);
         return buku;
     }
+
+    /**
+     * mencari buku spesifik berdasarkan judul, mengembalikan satu buah buku
+     * @param query judul buku berupa string
+     * @return sebuah buku yang dicari berdasarkan judul
+     */
     public Buku findBuku(String query){
         Buku buku = bukuRepository.findBuku(query);
         return buku;
     }
 
+    /**
+     * Menghapus sebuah buku berdasarkan judul
+     * @param query judul sebuah buku yang ingin dihapus
+     */
     public void deleteBukuByJudul(String query){
         bukuRepository.delete(findBuku(query));
     }
