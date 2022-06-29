@@ -38,11 +38,11 @@ public class Users {
      * @param status
      */
     public Users(Long id, String nama, String username, String password, String status) {
-        this.id = id;
         this.nama = nama;
         this.username = username;
         this.password = password;
         this.status = status;
+        this.id = id;
     }
 
     /**
