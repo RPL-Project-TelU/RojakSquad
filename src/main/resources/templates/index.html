@@ -110,13 +110,20 @@
         <!-- Call to action-->
         <section class="page-section bg-dark text-white">
             <div class="container px-4 px-lg-5 text-center">
-                     <div class="div align-items-center reference-video">
+                <div class="row">
+                    <div class="col">
+                        <div class="div align-items-center reference-video">
                             <video width="850" height="480" autoplay loop muted >
                                 <source src="/assets/video/rojakReference.mp4" type="video/mp4">
                             </video>
                         </div>
-                <h2 class="mb-4">Try Rojak Reference App Now!</h2>
-                <a class="btn btn-light btn-xl" th:href="@{/loginPage}">Try it!</a>
+                    </div>
+                    <div class="col">
+                        <h2 class="mb-4 text-center">Throw Away Your Diffilcuties!</h2>
+                        <p class="text-center">Start searching through our references to finish your assignment</p>
+                        <a class="btn btn-light btn-xl btnTry " th:href="@{/loginPage}">Try Now!</a>
+                    </div>
+                </div>
             </div>
         </section>
         <!-- Contact-->
