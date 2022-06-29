@@ -29,14 +29,20 @@ public class UsersController {
             redirAttrs.addFlashAttribute("error", "Username or Password must not contains special characters.");
             return "redirect:/loginPage/";   
         }
-        Users user = userService.findUser(username);
-        redirAttrs.addFlashAttribute("user", user);
-          
-        if(user.getUsername().equalsIgnoreCase(username)&&user.getPassword().equalsIgnoreCase(password)){
-            return "redirect:/searchPage";
-        }else{
+        try{
+            Users user = userService.findUser(username);
+            redirAttrs.addFlashAttribute("user", user);
+              
+            if(user.getUsername().equalsIgnoreCase(username)&&user.getPassword().equalsIgnoreCase(password)){
+                return "redirect:/searchPage";
+            }else{
+                redirAttrs.addFlashAttribute("error", "Wrong Username or Password");
+                return "redirect:/loginPage/"; 
+            }
+        }catch(Exception e){
             redirAttrs.addFlashAttribute("error", "Wrong Username or Password");
             return "redirect:/loginPage/"; 
+            
         }
         
     }
