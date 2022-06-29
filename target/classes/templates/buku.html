@@ -5,82 +5,100 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+     <!-- Favicon-->
+     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+     <!-- Bootstrap Icons-->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+     <!-- Google fonts-->
+     <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+     <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap" rel="stylesheet">
+     <!-- SimpleLightbox plugin CSS-->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+
 </head>
 <body>
-    
-<div class="container">
-
-    <!-- Judul Buku -->
-    <h1 class="my-4" th:text="${buku.judul}">
+  <div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline">Reference Menu</span>
+                </a>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                  <li class="nav-item">
+                      <a href="#" class="nav-link align-middle px-0">
+                          <i class="fs-4 bi-house text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Home</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a th:href="@{/search(judul='',username=${user.username})}" class="nav-link px-0 align-middle">
+                          <i class="fs-4 bi-search text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Search Page</span> </a>
+                  </li>
+                  <li>
+                      <a href="#" class="nav-link px-0 align-middle" id="btnSitasi" data-bs-toggle="modal" data-bs-target="#modalSitasi">
+                          <i class="fs-4 bi-clipboard text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Sitasi</span> </a>
+                  </li>
+                  <li>
+                      <a href="#" class="nav-link px-0 align-middle" data-bs-toggle="modal" data-bs-target="#modalDelete" id="btnHapus">
+                          <i class="fs-4 bi-trash text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Delete Buku</span> </a>
+                  </li>
+              </ul>
+                <hr>
+                <div class="dropdown pb-4">
+                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://github.com/pownyfals.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                        <span class="d-none d-sm-inline mx-1" th:text="${user.nama}"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                        <li><a class="dropdown-item" href="#">New project...</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col py-3">
     </h1>
 
     <!-- Deskripsi -->
     <div class="row">
-  
-      <div class="col-md-8">
-        <embed th:src="@{${'pdf/'+location}}" width="800px" height="800px" type="">
-        
-        
-      </div>
-  
-      <div class="col-md-4">
-        <h3 class="my-3">Deskripsi Buku</h3>
-        <p th:text="${buku.deskripsi}"></p>
-        <div class="row">
-            <div class="col-sm">
-                <p>Penulis : </p>
-                <p>Penerbit : </p>
-                <p>Tanggal Terbit : </p>
-            </div>
-            <div class="col-sm">
-                <p th:text="${buku.penulis}"></p>
-                <p th:text="${buku.penerbit}"></p>
-                <p th:text="${buku.tglTerbit}"></p>
-            </div>
+      <div class="col-7">
+        <embed th:src="@{${'pdf/'+location}}" width="900px" height="970px" type="">
         </div>
-        <div class="row mt-5">
-            <div class="col-md-3">
-                <button type="button" id="btnSitasi"class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalSitasi">Sitasi</button>
+        <div class="col-5">
+         <div class="row">
+          <div class="col-5">
+            <h5 class="fw-normal pt-4">Penulis</h5>
+            <h5 class="fw-light" th:text="${buku.penulis}"></h5>
+          </div>
+           <div class="col">
+             <h5 class="fw-normal pt-4">Penerbit</h5>
+             <h5 class="fw-light" th:text="${buku.penerbit}"></h5>
             </div>
-            <div th:if="'author' == ${status}" class="col-sm">
-                <button type="button" data-bs-toggle="modal" data-bs-target="#modalDelete" id="btnHapus" class="btn btn-danger">Hapus</button>
-            </div>
+          </div>
+          <h5 th:text="${buku.judul}" class="pt-5 fw-normal text-center"></h5>
+          <p th:text="${buku.deskripsi}" class="pt-3 fw-light text-center"></p>
+            
+          <br>
         </div>
-      </div>
+        <!-- <div class="col">
+          <h5 th:text="${buku.judul}"></h5>
+        </div> -->
     </div>
-    <!-- Buku Lainya -->
-    <!-- <h3 class="my-4">Buku Lainya</h3>
-  
-    <div class="row">
-  
-      <div class="col-md-3 col-sm-6 mb-4">
-        <a href="#">
-              <img class="img-fluid" src="https://via.placeholder.com/500x300" alt="">
-            </a>
-      </div>
-  
-      <div class="col-md-3 col-sm-6 mb-4">
-        <a href="#">
-              <img class="img-fluid" src="https://via.placeholder.com/500x300" alt="">
-            </a>
-      </div>
-  
-      <div class="col-md-3 col-sm-6 mb-4">
-        <a href="#">
-              <img class="img-fluid" src="https://via.placeholder.com/500x300" alt="">
-            </a>
-      </div>
-  
-      <div class="col-md-3 col-sm-6 mb-4">
-        <a href="#">
-              <img class="img-fluid" src="https://via.placeholder.com/500x300" alt="">
-            </a>
-      </div>
-  
-    </div> -->
-    <!-- /.row -->
+        </div>
+    </div>
+</div>
+<div class="container">
 
 <!-- Modal Delete -->
 <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -95,6 +113,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
         <form th:action="@{/delete}">
+          <input type="hidden" id="username"  th:name="username" th:value="${user.username}">
           <button type="submit" class="btn btn-danger" th:name="buttonDelete" 
             th:value="${buku.judul}">Hapus Buku</button>
         </form>

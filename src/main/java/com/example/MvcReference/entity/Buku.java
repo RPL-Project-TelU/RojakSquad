@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -25,6 +26,7 @@ public class Buku {
     private String judul;
     private String penulis;
     private String penerbit;
+    @Lob
     private String deskripsi;
     private String tglTerbit;
     private String file;
