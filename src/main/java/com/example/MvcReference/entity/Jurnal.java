@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+
 /**
  * Model class jurnal, berisi id, judul, penulis, dan nomer jurnal
  */
