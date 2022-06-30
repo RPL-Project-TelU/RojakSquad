@@ -59,7 +59,7 @@ public class UsersControllerTest {
             .andExpect(status().isFound())
             .andExpect(redirectedUrl("/searchPage"));
         } catch (Exception e){
-            this.mockMvc.perform(get("/login").param("username", "test1").param("password","test2"))
+            this.mockMvc.perform(get("/login"))
             .andExpect(flash().attribute("error", "Wrong Username or Password"))
             .andExpect(redirectedUrl("/loginPage/"));
         }
