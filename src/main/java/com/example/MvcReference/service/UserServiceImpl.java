@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     /**
-     * Mencaru yser yang ada didalam repository atau databse
+     * Mencari user yang ada didalam repository atau databse
      * @param query nama user yang terdaftar dalam bentuk String
      * @return sebuah user yang mempunyai nama sesuai parameter masukan
      */

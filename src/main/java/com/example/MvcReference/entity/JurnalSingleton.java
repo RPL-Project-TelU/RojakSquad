@@ -58,6 +58,7 @@ public class JurnalSingleton {
         for (int i = 0; i < dataJurnal.size(); i++) {
             if (judul == dataJurnal.get(i).getJudul()){
                 dataJurnal.remove(i);
+                break;
             }
         }
     }
