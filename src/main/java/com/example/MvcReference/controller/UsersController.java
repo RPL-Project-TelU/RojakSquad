@@ -34,6 +34,7 @@ public class UsersController {
             redirAttrs.addFlashAttribute("user", user);
               
             if(user.getUsername().equalsIgnoreCase(username)&&user.getPassword().equalsIgnoreCase(password)){
+                redirAttrs.addAttribute("username", username);
                 return "redirect:/searchPage";
             }else{
                 redirAttrs.addFlashAttribute("error", "Wrong Username or Password");

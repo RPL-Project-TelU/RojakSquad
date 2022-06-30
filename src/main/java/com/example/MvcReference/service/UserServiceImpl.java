@@ -1,7 +1,5 @@
 package com.example.MvcReference.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.MvcReference.dao.UserRepository;
@@ -26,6 +24,10 @@ public class UserServiceImpl implements UserService {
         return userRepository.findUser(query);
     }
 
+ 
+    public void createUser(Users user) { 
+        userRepository.save((Users) user); 
+     } 
     
     
 }

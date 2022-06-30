@@ -20,4 +20,6 @@ public interface UserRepository extends JpaRepository<Users, Long> {
 
     void save(Optional<Users> userOptional);
 
+    Users findUserByUsername(String username); 
+
 }

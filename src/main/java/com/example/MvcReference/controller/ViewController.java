@@ -40,8 +40,9 @@ public class ViewController {
     }
 
     @GetMapping("/searchPage")
-    public String showBukuMhs(Model model) {
+    public String showBukuMhs(@RequestParam(value = "username", required = true) String username,Model model) {
         model.addAttribute("listBuku", bukuService.getBuku());
+        model.addAttribute("user",userService.findUser(username));  
         return "search";
     }
 
