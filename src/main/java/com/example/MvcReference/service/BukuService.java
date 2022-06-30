@@ -1,9 +1,11 @@
 package com.example.MvcReference.service;
 
 import java.util.List;
-
 import com.example.MvcReference.entity.Buku;
 
+/**
+ * Interface untuk service buku yang di implementasi kan di BukuServiceImpl.
+ */
 public interface BukuService {
     public List<Buku> getBuku();
     public void addNewBuku(Buku buku);

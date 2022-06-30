@@ -9,9 +9,6 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 
-
-
-
 /**
  * menyimpan id buku, judul buku, penulis buku, penerbit buku
  * id buku digenerate automatis sebagai primary key.
@@ -145,19 +142,42 @@ public class Buku {
         this.penerbit = penerbit;
     }
 
+    /**
+     * 
+     * @return deskripsi buku
+     */
     public String getDeskripsi() {
         return deskripsi;
     }
+
+    /**
+     * 
+     * @param deskripsi berupa string berisi deskripsi buku
+     */
     public void setDeskripsi(String deskripsi) {
         this.deskripsi = deskripsi;
     }
 
+    /**
+     * 
+     * @return tanggal terbit buku dalam string
+     */
     public String getTglTerbit() {
         return tglTerbit;
     }
+
+    /**
+     * 
+     * @return file buku dalam string
+     */
     public String getFile() {
         return file;
     }
+
+    /**
+     * 
+     * @param file string berisi file buku
+     */
     public void setFile(String file) {
         this.file = file;
     }
