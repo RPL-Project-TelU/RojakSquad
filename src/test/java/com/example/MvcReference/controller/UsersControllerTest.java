@@ -1,11 +1,14 @@
 package com.example.MvcReference.controller;
 import java.io.IOException;
+import java.util.Optional;
 
 import com.example.MvcReference.entity.Users;
 import com.example.MvcReference.service.UserService;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.mockito.Mockito.when;
+
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.junit.Before;
@@ -17,10 +20,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.flash;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
-import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import com.example.MvcReference.dao.UserRepository;
 import com.example.MvcReference.entity.Users;
@@ -36,7 +38,6 @@ public class UsersControllerTest {
     private UserRepository testUser;
 
     @Mock
-    @Autowired
     private UserService userSerTest;
 
     @InjectMocks
@@ -52,10 +53,10 @@ public class UsersControllerTest {
         Users user = new Users("test", "test", "test", "test");
         testUser.save(user);
         try{
-            Users findU = userSerTest.findUser(user.getUsername());
+            when(userSerTest.findUser(user.getUsername())).thenReturn(user);
 
             this.mockMvc.perform(get("/login").param("username", user.getUsername()).param("password", user.getPassword()))
-            // .andExpect(flash().attribute("user", findU))
+            .andExpect(status().isFound())
             .andExpect(redirectedUrl("/searchPage"));
         } catch (Exception e){
             this.mockMvc.perform(get("/login").param("username", "test1").param("password","test2"))
@@ -66,9 +67,7 @@ public class UsersControllerTest {
         // Jika terdapat special char
         this.mockMvc.perform(get("/login").param("username", "test!").param("password", "test!"))
         .andExpect(flash().attribute("error", "Username or Password must not contains special characters."))
-        .andExpect(redirectedUrl("/loginPage/"));
-
-        
+        .andExpect(redirectedUrl("/loginPage/"));  
 
     }
 }
