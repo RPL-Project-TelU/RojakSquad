@@ -3,6 +3,7 @@
 
 E Reference App for uploading and reading pdf Book, powered by [Spring Framework](https://spring.io/projects/spring-boot).
 
+![referenceGif](https://user-images.githubusercontent.com/38776020/176658761-2dd6bbef-485a-4957-a8b3-5db868ca0d81.gif)
 
 ## Installation
 
@@ -91,12 +92,6 @@ Type this url in your adress bar to use the app
 For our documentation Click
 
 [Documentation](https://linktodocumentation)
-
-
-## Video
-
-![Video](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
 
 ## Authors
 
