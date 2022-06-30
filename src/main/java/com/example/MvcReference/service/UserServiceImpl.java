@@ -24,8 +24,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public Users findUser(String query) {
         return userRepository.findUser(query);
-    }
-
-    
+    } 
     
 }
