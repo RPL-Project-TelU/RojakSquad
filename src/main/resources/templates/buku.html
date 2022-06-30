@@ -44,7 +44,7 @@
                       <a href="#" class="nav-link px-0 align-middle" id="btnSitasi" data-bs-toggle="modal" data-bs-target="#modalSitasi">
                           <i class="fs-4 bi-clipboard text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Sitasi</span> </a>
                   </li>
-                  <li>
+                  <li th:if="'author' == ${user.status}">
                       <a href="#" class="nav-link px-0 align-middle" data-bs-toggle="modal" data-bs-target="#modalDelete" id="btnHapus">
                           <i class="fs-4 bi-trash text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Delete Buku</span> </a>
                   </li>
@@ -56,13 +56,12 @@
                         <span class="d-none d-sm-inline mx-1" th:text="${user.nama}"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                        <li><a class="dropdown-item" href="#">New project...</a></li>
                         <li><a class="dropdown-item" href="#">Settings</a></li>
                         <li><a class="dropdown-item" href="#">Profile</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        <li><a class="dropdown-item" th:href="@{/loginPage}">Sign out</a></li>
                     </ul>
                 </div>
             </div>

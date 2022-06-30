@@ -17,7 +17,7 @@ import com.example.MvcReference.entity.Users;
 
 @Configuration
 @Component
-public class Config {
+public class Config extends WebSecurityConfigurerAdapter{
 
 
     @Bean(name = "multipartResolver")
