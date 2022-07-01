@@ -22,12 +22,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public Users findUser(String query) {
         return userRepository.findUser(query);
-    }
-
+    } 
  
     public void createUser(Users user) { 
         userRepository.save((Users) user); 
      } 
-    
     
 }
