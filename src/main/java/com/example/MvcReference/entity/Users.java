@@ -1,5 +1,8 @@
 package com.example.MvcReference.entity;
 
+import java.util.Collection;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,6 +25,7 @@ public class Users {
     private String username;
     private String password;
     private String status;
+
     
     /**
      * Constructor default
@@ -74,7 +78,7 @@ public class Users {
     public void setNama(String nama) {
         this.nama = nama;
     }
-
+     
     public String getUsername() {
         return username;
     }
@@ -82,7 +86,7 @@ public class Users {
     public void setUsername(String username) {
         this.username = username;
     }
-
+   
     public String getPassword() {
         return password;
     }
