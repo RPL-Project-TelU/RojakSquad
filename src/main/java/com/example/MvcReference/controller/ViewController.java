@@ -55,7 +55,7 @@ public class ViewController {
     }
 
     @RequestMapping(path="/buku")
-    public String test(@RequestParam(value = "judul", required = false) String judul,
+    public String bukaBuku(@RequestParam(value = "judul", required = false) String judul,
                       @RequestParam(value="username",required = true) String username, Model model) throws IOException {
         Buku buku = bukuService.findBuku(judul);
         Users user = userService.findUser(username);
