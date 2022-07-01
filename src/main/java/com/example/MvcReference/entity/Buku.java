@@ -1,17 +1,12 @@
 package com.example.MvcReference.entity;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
-
 
 
 /**
@@ -28,8 +23,11 @@ public class Buku {
     private String judul;
     private String penulis;
     private String penerbit;
+    @Lob
     private String deskripsi;
     private String tglTerbit;
+    private String file;
+
 
 
     public Buku(String judul, String penulis, String penerbit, String deskripsi, String tglTerbit) {
@@ -40,7 +38,14 @@ public class Buku {
         this.tglTerbit = tglTerbit;
     }
 
-
+    public Buku(String judul, String penulis, String penerbit, String deskripsi, String tglTerbit, String file) {
+        this.judul = judul;
+        this.penulis = penulis;
+        this.penerbit = penerbit;
+        this.deskripsi = deskripsi;
+        this.tglTerbit = tglTerbit;
+        this.file = file;
+    }
   
     /**
      * 
@@ -137,15 +142,45 @@ public class Buku {
         this.penerbit = penerbit;
     }
 
+    /**
+     * 
+     * @return deskripsi buku
+     */
     public String getDeskripsi() {
         return deskripsi;
     }
+
+    /**
+     * 
+     * @param deskripsi berupa string berisi deskripsi buku
+     */
     public void setDeskripsi(String deskripsi) {
         this.deskripsi = deskripsi;
     }
 
+    /**
+     * 
+     * @return tanggal terbit buku dalam string
+     */
     public String getTglTerbit() {
         return tglTerbit;
     }
+
+    /**
+     * 
+     * @return file buku dalam string
+     */
+    public String getFile() {
+        return file;
+    }
+
+    /**
+     * 
+     * @param file string berisi file buku
+     */
+    public void setFile(String file) {
+        this.file = file;
+    }
+
 
 }   
