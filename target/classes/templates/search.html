@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Searching | E-Reference</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <!-- Bootstrap Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap" rel="stylesheet">
+    <!-- SimpleLightbox plugin CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sideBar">
+      <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                    <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <span class="fs-5 d-none d-sm-inline">Reference Menu</span>
+                    </a>
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link align-middle px-0">
+                                <i class="fs-4 bi-house text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Home</span>
+                            </a>
+                        </li>
+                        <li th:if="'author' == ${user.status}">
+                            <a href="#" class="nav-link px-0 align-middle" data-bs-toggle="modal" data-bs-target="#addModal">
+                                <i class="fs-4 bi-book text-white"></i> <span class="text-white ms-1 d-none d-sm-inline">Add Buku</span></a>
+                        </li>
+                      </ul>
+                    <hr>
+                    <div class="dropdown pb-4">
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://github.com/pownyfals.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                            <span class="d-none d-sm-inline mx-1" th:text="${user.nama}"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" th:href="@{/loginPage}">Sign out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col py-3">
+              <div class="container">
+                <!-- Search Bar -->
+                <div class="row" style="margin-top: 3%;">
+                  <div class="col-1">
+                    <label for="exampleDataList" class="fw-semibold fs-6">Cari Buku</label>
+                  </div>
+                  <div class="col-8">
+                    <form th:action="@{/search}">
+                      <input class="form-control" type="text" th:name="judul" name="buku.judul" list="datalistOptions" id="exampleDataList" placeholder="Cari Judul Buku....">
+                      <datalist id="datalistOptions">
+                        <option value="San Francisco">
+                          <option value="New York">
+                          </datalist>
+                        </div>
+                        <div class="col">
+                          <button type="submit" class="btn btn-dark"  th:name="username" th:value="${user.username}">Cari</button>
+                        </div>
+                      </div>
+                    </form>
+                <!-- Tabel -->
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Judul</th>
+                      <th scope="col">Penulis</th>
+                      <th scope="col">Penerbit</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr th:each="buku : ${listBuku}">
+                      <th scope="row" th:text="${buku.id}"></th>
+                      <td ><a th:href="@{/buku(judul=${buku.judul}, username=${user.username})}" style="text-decoration: none; color: black;" th:text="${buku.judul}"></a></td>
+                      <td th:text="${buku.penulis}"></td>
+                      <td th:text="${buku.penerbit}"></td>
+                    </tr>
+                    <tr th:each="buku : ${judul}">
+                      <th scope="row" th:text="${buku.id}"></th>
+                      <td ><a th:href="@{/buku(judul=${buku.judul}, username=${user.username})}" style="text-decoration: none; color: black;" th:text="${buku.judul}"></a></td>
+                      <td th:text="${buku.penulis}"></td>
+                      <td th:text="${buku.penerbit}"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              
+                  </div>
+                </div>
+                <!-- Add Modal -->
+                <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Referensi</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <form th:action="@{/add }" enctype="multipart/form-data" method="post">
+          
+                          <div class="mb-3">
+                            <label for="judul" class="">Judul Buku</label>
+                            <input type="text" class="form-control" th:name="judul" placeholder="Buku . . .">
+                          </div>
+                        
+                        <div class="mb-3">
+                          <label for="Penulis" class="">Penulis Buku</label>
+                            <input type="text" class="form-control" th:name="penulis" placeholder="Burhan, Samsoel, . . .">
+                          
+                        </div>
+                        
+                        <div class="mb-3">
+                          <label for="penerbit" class="">Penerbit Buku</label>
+                            <input type="text" class="form-control" th:name="penerbit" placeholder="PT Terbit . . .">
+                          
+                        </div>
+            
+                        <div class="mb-3">
+                          <label for="deskripsi" class="">Deskripsi</label>
+                            <input type="text" class="form-control" th:name="deskripsi" placeholder="Buku ini merupakan ...">
+                          
+                        </div>
+            
+                        <div class="mb-3">
+                          <label for="deskripsi" class="">Tanggal Terbit</label>
+                            <input type="date" class="form-control" th:name="tglTerbit" placeholder="Buku ini merupakan ...">
+                          
+                        </div>
+            
+                        <div class="mb-3">
+                          <label for="deskripsi" class="">File Referensi</label>
+                            <input type="file" class="form-control" th:name="file">
+                        
+                        </div>
+                        
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary "  th:name="username" th:value="${user.username}">Tambah Referensi</button>
+                      </div>
+                    </form>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- End of Sidebar -->
+
+    
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </body>
+    </html>
