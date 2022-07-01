@@ -57,7 +57,7 @@ public class UsersControllerTest {
 
             this.mockMvc.perform(get("/login").param("username", user.getUsername()).param("password", user.getPassword()))
             .andExpect(status().isFound())
-            .andExpect(redirectedUrl("/searchPage"));
+            .andExpect(redirectedUrl("/searchPage?username="+user.getUsername()));
         } catch (Exception e){
             this.mockMvc.perform(get("/login"))
             .andExpect(flash().attribute("error", "Wrong Username or Password"))
