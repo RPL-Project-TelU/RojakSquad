@@ -91,7 +91,7 @@ Type this url in your adress bar to use the app
 
 For our documentation Click
 
-[Documentation](https:https://docs.google.com/document/d/1wMqknaVnEJZovpjgaQcHMxHhvA2pCrdwKvFbmD2cGLY/edit)
+[Documentation](https://docs.google.com/document/d/1wMqknaVnEJZovpjgaQcHMxHhvA2pCrdwKvFbmD2cGLY/edit)
 
 ## Authors
 
